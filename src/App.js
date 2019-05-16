@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { getQueryParams } from './utils';
-import Login from './Login';
-import Main from './Main';
+import { connect } from 'react-redux';
+import Login from './containers/Login';
+import Main from './containers/Main';
 import './App.css';
 
 class App extends Component {
@@ -28,5 +29,11 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    token: state.token
+  }
+}
+
+export default connect(mapStateToProps)(App);
 
