@@ -6,10 +6,10 @@ export const fetchUserGroups = token => {
   return dispatch => {
     dispatch({ type: FETCH_GROUPS_START })
     fetchUserGroupsAPI(token)
-      .then(response => {
+      .then(groups => {
         dispatch({
           type: FETCH_GROUPS_SUCCESS,
-          payload: response
+          payload: groups
         })
       })
   }

@@ -7,6 +7,7 @@ import './Main.css'
 class Main extends Component {
 
   componentDidMount(){
+    console.log('USER GROUPS:', this.props.groups)
     this.props.fetchUserGroups(this.props.token)    
   }
 
@@ -20,7 +21,8 @@ class Main extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    groups: state.userGroups
   }
 }
 

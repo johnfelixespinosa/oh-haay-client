@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import authReducer from './authReducer';
-import reducer from './reducer';
+import groupReducer from './groupReducer';
 
 const rootReducer = combineReducers({
-  global: reducer,
-  user: authReducer
+  user: authReducer,
+  userGroups: groupReducer
 });
 
 export default rootReducer;
