@@ -8,13 +8,13 @@ class Main extends Component {
     return (
       <div className="main">
         <div className="card 1">
-          <div class="card_image">
+          <div className="card_image">
             <img 
               src={this.props.user.photo_url} 
               alt='' 
             />
           </div>
-          <div class="card_title title-white">
+          <div className="card_title title-white">
             <p>{this.props.user.name}</p>
           </div>
         </div>
