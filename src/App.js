@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getQueryParams } from './utils';
 import { connect } from 'react-redux';
 import { fetchUser } from './actions/authActions'
+
 import Login from './containers/Login';
 import Main from './containers/Main';
 import './App.css';
@@ -19,8 +20,8 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.props.fetchUser(this.state.token);
     console.log('USER TOKEN:', this.state.token)
+    this.props.fetchUser(this.state.token)    
   }
 
   render() {

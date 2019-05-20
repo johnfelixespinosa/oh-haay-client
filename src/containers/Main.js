@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux"
+import { connect } from 'react-redux';
+import { fetchUserGroups } from '../actions/groupActions'
+import UserCard from '../components/UserCard';
 import './Main.css'
 
 class Main extends Component {
 
+  componentDidMount(){
+    this.props.fetchUserGroups(this.props.token)    
+  }
+
   render() {
     return (
       <div className="main">
-        <div className="card 1">
-          <div className="card_image">
-            <img 
-              src={this.props.user.photo_url} 
-              alt='' 
-            />
-          </div>
-          <div className="card_title title-white">
-            <p>{this.props.user.name}</p>
-          </div>
-        </div>
+        <UserCard {...this.props}/>
       </div>
     )
   }
@@ -27,4 +23,8 @@ const mapStateToProps = (state) => {
     user: state.user
   }
 }
-export default connect(mapStateToProps)(Main)
+
+const mapDispatchToProps = {
+  fetchUserGroups
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Main)
