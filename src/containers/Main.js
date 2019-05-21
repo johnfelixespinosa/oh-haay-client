@@ -1,32 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUserGroups } from '../actions/groupActions'
+import { fetchUserGroups } from '../actions/groupActions';
+import GroupsList from '../containers/GroupsList';
 import UserCard from '../components/UserCard';
 import './Main.css'
 
 class Main extends Component {
 
-  componentDidMount(){
-    console.log('USER GROUPS:', this.props.groups)
-    this.props.fetchUserGroups(this.props.token)    
-  }
-
   render() {
+
     return (
       <div className="main">
-        <UserCard {...this.props}/>
+        <UserCard {...this.props.user} />
+        <GroupsList groups={this.props.groups} />
       </div>
     )
   }
 }
+
 const mapStateToProps = (state) => {
   return {
-    user: state.user,
-    groups: state.userGroups
+    user: state.userData.user,
+    groups: state.userData.user.groups
   }
 }
 
-const mapDispatchToProps = {
-  fetchUserGroups
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(mapStateToProps)(Main)
