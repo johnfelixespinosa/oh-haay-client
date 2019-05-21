@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUserGroups } from '../actions/groupActions';
 import GroupsList from '../containers/GroupsList';
 import UserCard from '../components/UserCard';
-import './Main.css'
 
 class Main extends Component {
 

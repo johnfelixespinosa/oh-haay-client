@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import GroupListItem from '../components/GroupListItem';
+import Card from '../components/Card';
 import './GroupsList.css';
 
 class GroupsList extends Component {
   render() {
     const groups = this.props.groups
     const groupsCount = groups && groups.length
-    const renderGroups = groups && groups.map(group =>
-      <GroupListItem
+    const renderGroupCards = groups && groups.map(group =>
+      <Card
         key={group.name}
         name={group.name}
         meetup_group_id={group.meetup_group_id}
@@ -23,7 +23,9 @@ class GroupsList extends Component {
         <div className="group-list-title">
           <h3>Member of {groupsCount} Groups</h3>
         </div>
-        {renderGroups}
+        <div className="app-card-list" id="app-card-list">
+          {renderGroupCards}
+        </div>
       </div>
     )
   }
