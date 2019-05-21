@@ -3,11 +3,13 @@ import GroupListItem from '../components/GroupListItem';
 
 class GroupsList extends Component {
   render() {
-    const renderGroups = this.props.groups && this.props.groups.map(group =>
+    const groups = this.props.groups
+    const groupsCount = groups && groups.length
+    const renderGroups = groups && groups.map(group =>
       <GroupListItem
         key={group.name}
         name={group.name}
-        meetup_group_id={group.meetup_group_id} 
+        meetup_group_id={group.meetup_group_id}
         group_link={group.link}
         group_key_photo_url={group.group_key_photo_url}
         city={group.city}
@@ -17,6 +19,9 @@ class GroupsList extends Component {
 
     return (
       <div className="group-list">
+        <div className="group-list-title">
+          <h3>Member of {groupsCount} Groups</h3>
+        </div>
         {renderGroups}
       </div>
     )
