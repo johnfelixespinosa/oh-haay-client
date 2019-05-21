@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GroupListItem from '../components/GroupListItem';
+import './GroupsList.css';
 
 class GroupsList extends Component {
   render() {
