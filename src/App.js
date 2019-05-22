@@ -5,7 +5,6 @@ import { fetchUser } from './actions/authActions'
 import { fetchUserGroups } from './actions/groupActions';
 import Login from './containers/Login';
 import Main from './containers/Main';
-import './App.css';
 
 class App extends Component {
   constructor() {

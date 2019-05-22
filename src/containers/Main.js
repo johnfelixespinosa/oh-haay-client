@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchUserGroups } from '../actions/groupActions';
-import { Grid, Image } from 'semantic-ui-react'
+import { Container, Image } from 'semantic-ui-react'
 import GroupsList from '../containers/GroupsList';
 import UserCard from '../components/UserCard';
 // import './Main.css'
@@ -11,16 +11,19 @@ class Main extends Component {
   render() {
 
     return (
-      <Grid>
-        <div className="main">
-          <Grid.Row>
+      <div>
+        <Container>
+          <div>
             <UserCard {...this.props.user} />
-          </Grid.Row>
-          <Grid.Row>
+          </div>
+        </Container>
+        <Container>
+          <div>
             <GroupsList groups={this.props.groups} />
-          </Grid.Row>
-        </div>
-      </Grid>
+          </div>
+        </Container>
+      </div >
+
     )
   }
 }

@@ -1,19 +1,12 @@
 import React from 'react';
+import { Grid, Card, Image, Icon } from 'semantic-ui-react'
 import './UserCard.css';
 
 const UserCard = ({ name, meetup_id, meetup_profile_url, photo_url, city}) => {
 
   return (
-    <div className="user-card 1">
-      <div className="user-card_image">
-        <img src={photo_url} alt=''/>
-      </div>
-      <div className="user-card_title title-white">
-        <p>{name}</p>
-      </div>
-    </div>
+    <Card className="user-card" centered image={photo_url} header={name} meta={city}/>
   );
 }
-
 
 export default UserCard;
