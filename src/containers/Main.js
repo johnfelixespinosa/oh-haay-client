@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchUserGroups } from '../actions/groupActions';
-import { Container, Image } from 'semantic-ui-react'
+import { Container, Image, Menu, Divider, Icon, Button } from 'semantic-ui-react'
 import GroupsList from '../containers/GroupsList';
 import UserCard from '../components/UserCard';
-// import './Main.css'
+import './Main.css'
 
 class Main extends Component {
 
@@ -13,14 +13,25 @@ class Main extends Component {
     return (
       <div>
         <Container>
-          <div>
-            <UserCard {...this.props.user} />
-          </div>
+          <Menu fixed="top" inverted color="gray">
+            <Menu.Item>
+              <h1 className="oh-haay-logo">oh-haay!</h1>
+            </Menu.Item>
+            <Menu.Menu position="right">
+              <Menu.Item>
+                <Button color="gray">Logout</Button>
+              </Menu.Item>
+            </Menu.Menu>
+          </Menu>
         </Container>
+
         <Container>
-          <div>
-            <GroupsList groups={this.props.groups} />
-          </div>
+          <UserCard {...this.props.user} />
+        </Container>
+
+        <Divider />
+        <Container>
+          <GroupsList groups={this.props.groups} />
         </Container>
       </div >
 

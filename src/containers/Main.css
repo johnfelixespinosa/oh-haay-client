@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Courgette';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Courgette Regular'), local('Courgette-Regular'), url(http://themes.googleusercontent.com/static/fonts/courgette/v1/BHG8ZtTfO0yYnp02--QxqqCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}
+
+.oh-haay-logo {
+  padding: 0;
+  font-family: 'Courgette';
+  font-size: 25px;
+  font-weight: 700;
+  color: #F64060;
+  letter-spacing: -.03em;
+  white-space: nowrap;
+}
+
