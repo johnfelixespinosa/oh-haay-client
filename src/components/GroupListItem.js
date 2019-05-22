@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, Image, Icon } from 'semantic-ui-react'
+import { Card, Image, Icon } from 'semantic-ui-react'
 import './GroupListItem.css';
 
 const GroupListItem = ({ name, meetup_group_id, group_link, group_key_photo_url, city, country }) => {
@@ -14,10 +14,10 @@ const GroupListItem = ({ name, meetup_group_id, group_link, group_key_photo_url,
         </Card.Meta>
       </Card.Content>
       <Card.Content extra>
-        <a>
+        
           <Icon name='barcode' />
           {meetup_group_id}
-        </a>
+        
       </Card.Content>
     </Card>
   );
