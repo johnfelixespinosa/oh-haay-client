@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchUserGroups } from '../actions/groupActions';
+import { Grid, Image } from 'semantic-ui-react'
 import GroupsList from '../containers/GroupsList';
 import UserCard from '../components/UserCard';
-import './Main.css'
+// import './Main.css'
 
 class Main extends Component {
 
   render() {
 
     return (
-      <div className="main">
-        <UserCard {...this.props.user} />
-        <GroupsList groups={this.props.groups} />
-      </div>
+      <Grid>
+        <div className="main">
+          <Grid.Row>
+            <UserCard {...this.props.user} />
+          </Grid.Row>
+          <Grid.Row>
+            <GroupsList groups={this.props.groups} />
+          </Grid.Row>
+        </div>
+      </Grid>
     )
   }
 }

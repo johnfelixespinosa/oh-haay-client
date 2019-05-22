@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GroupListItem from '../components/GroupListItem';
+import { Grid, Image } from 'semantic-ui-react'
 import './GroupsList.css';
 
 class GroupsList extends Component {
@@ -23,7 +24,9 @@ class GroupsList extends Component {
         <div className="group-list-title">
           <h3>Member of {groupsCount} Groups</h3>
         </div>
-        {renderGroups}
+        <Grid columns={4} divided>
+          {renderGroups}
+        </Grid>
       </div>
     )
   }
