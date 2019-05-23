@@ -3,6 +3,7 @@ import { getQueryParams } from './utils';
 import { connect } from 'react-redux';
 import { fetchUser } from './actions/authActions'
 import { fetchUserGroups } from './actions/groupActions';
+import { fetchUserGroupsEvents } from './actions/eventActions';
 import Login from './containers/Login';
 import Main from './containers/Main';
 
@@ -22,6 +23,7 @@ class App extends Component {
     console.log('USER TOKEN:', this.state.token)
     this.props.fetchUser(this.state.token)
     this.props.fetchUserGroups(this.state.token)
+    // this.props.fetchUserGroupsEvents(this.state.token)
   }
 
   render() {
@@ -44,7 +46,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   fetchUser,
-  fetchUserGroups
+  fetchUserGroups,
+  // fetchUserGroupsEvents
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
