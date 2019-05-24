@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import * as groupActions from '../actions/groupActions'; 
+import GroupModal from '../components/GroupModal';
 import { connect } from 'react-redux';
-import { Card, Image, Icon, Button, Modal, Header } from 'semantic-ui-react'
+import { Card, Image, Icon, Button, Modal } from 'semantic-ui-react'
 import './GroupListItem.css';
 
 class GroupListItem extends Component {
@@ -19,16 +20,8 @@ class GroupListItem extends Component {
           </Card.Meta>
 
           <Card.Description textAlign="center"> 
-            <Modal trigger={<Button onClick={() => setCurrentGroup(this.props.meetup_group_id)}>oh-haay!</Button>} closeIcon>
-              <Modal.Header>Members saying haay!</Modal.Header>
-              <Modal.Content image>
-                <Image wrapped size='medium' src='https://react.semantic-ui.com/images/avatar/large/rachel.png' />
-                <Modal.Description>
-                  <Header>Default Profile Image</Header>
-                  <p>We've found the following gravatar image associated with your e-mail address.</p>
-                  <p>Is it okay to use this photo?</p>
-                </Modal.Description>
-              </Modal.Content>
+            <Modal trigger={<Button onClick={() => setCurrentGroup(this.state.token, this.props.meetup_group_id)}>oh-haay!</Button>} closeIcon>
+              <GroupModal />
             </Modal>
           </Card.Description>
 

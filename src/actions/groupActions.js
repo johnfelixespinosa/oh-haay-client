@@ -1,6 +1,7 @@
 export const FETCH_GROUPS_START = 'FETCH_GROUPS_START';
 export const FETCH_GROUPS_SUCCESS = 'FETCH_GROUPS_SUCCESS';
 export const SET_CURRENT_GROUP = 'SET_CURRENT_GROUP';
+export const FETCH_OHHAAYS_SUCCESS = 'FETCH_OHHAAYS_SUCCESS';
 // export const FETCH_USER_ERROR = 'FETCH_USER_ERROR';
 
 export const fetchUserGroups = token => {
@@ -28,9 +29,27 @@ export const fetchUserGroupsAPI = token => {
     .then(response => response.json());
 }
 
-export const setCurrentGroup = groupId => {
-  return {
-    type: SET_CURRENT_GROUP,
-    groupId,
-  };
+export const setCurrentGroup = (token, groupId) => {
+  return dispatch => {
+    dispatch({ type: SET_CURRENT_GROUP, groupId })
+    fetchGroupOhHaaysAPI(token, groupId)
+      .then(ohHaays => {
+        dispatch({
+          type: FETCH_OHHAAYS_SUCCESS,
+          payload: ohHaays
+        })
+      })
+  }
+}
+
+export const fetchGroupOhHaaysAPI = (token, groupId) => {
+  return fetch("http://localhost:3001/api/v1/ohhaays", {
+    method: "GET",
+    headers: {
+      'content-type': 'application/json',
+      'accept': 'application/json',
+      "Authorization": `Bearer ${token}`
+    }
+  })
+    .then(response => response.json());
 }
