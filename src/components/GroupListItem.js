@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import * as groupActions from '../actions/groupActions'; 
+import { getQueryParams } from '../utils';
 import GroupModal from './GroupModal';
 import { connect } from 'react-redux';
 import { Card, Image, Icon, Button, Modal } from 'semantic-ui-react'
 import './GroupListItem.css';
 
 class GroupListItem extends Component {
+  constructor() {
+    super();
+
+    const params = getQueryParams();
+    this.state = { token: params.token };
+  }
   state = { open: false }
 
   render() {

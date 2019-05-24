@@ -1,7 +1,7 @@
 export const FETCH_USER_GROUPS_START = 'FETCH_USER_GROUPS_START';
 export const FETCH_USER_GROUPS_SUCCESS = 'FETCH_USER_GROUPS_SUCCESS';
 export const SET_CURRENT_GROUP = 'SET_CURRENT_GROUP';
-export const FETCH_OHHAAYS_SUCCESS = 'FETCH_OHHAAYS_SUCCESS';
+export const FETCH_MEMBERS_SUCCESS = 'FETCH_MEMBERS_SUCCESS';
 
 export const fetchUserGroups = token => {
   return dispatch => {
@@ -30,19 +30,21 @@ export const fetchUserGroupsAPI = token => {
 
 export const setCurrentGroup = (token, group) => {
   return dispatch => {
+    console.log("TOKEN IN ACTION", token)
     dispatch({ type: SET_CURRENT_GROUP, group })
-    fetchGroupOhHaaysAPI(token, group)
-      .then(ohHaays => {
+    fetchGroupMembersAPI(token, group)
+      .then(members => {
         dispatch({
-          type: FETCH_OHHAAYS_SUCCESS,
-          payload: ohHaays
+          type: FETCH_MEMBERS_SUCCESS,
+          payload: members
         })
       })
   }
 }
 
-export const fetchGroupOhHaaysAPI = (token, groupId) => {
-  return fetch("http://localhost:3001/api/v1/ohhaays", {
+export const fetchGroupMembersAPI = (token, group) => {
+  let groupId = group.meetup_group_id
+  return fetch(`http://localhost:3001/api/v1/groups/${groupId}/users`, {
     method: "GET",
     headers: {
       'content-type': 'application/json',

@@ -1,7 +1,8 @@
 import produce from 'immer';
 
 import {
-  SET_CURRENT_GROUP
+  SET_CURRENT_GROUP,
+  FETCH_MEMBERS_SUCCESS,
 } from '../actions/groupActions';
 
 
@@ -15,7 +16,9 @@ const groupReducer = produce((draft, action) => {
     case SET_CURRENT_GROUP:
       draft.currentGroup = action.group
       return;
-
+    case FETCH_MEMBERS_SUCCESS:
+      draft.currentGroup.members = action.payload
+      return;
 
     default:
       return;
