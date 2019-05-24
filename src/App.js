@@ -3,7 +3,7 @@ import { getQueryParams } from './utils';
 import { connect } from 'react-redux';
 import { fetchUser } from './actions/authActions'
 import { fetchUserGroups } from './actions/groupActions';
-import { fetchUserGroupsEvents } from './actions/eventActions';
+// import { fetchUserGroupsEvents } from './actions/eventActions';
 import Login from './containers/Login';
 import Main from './containers/Main';
 

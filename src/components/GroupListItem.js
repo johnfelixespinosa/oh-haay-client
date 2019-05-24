@@ -5,8 +5,6 @@ import './GroupListItem.css';
 class GroupListItem extends Component {
   state = { open: false }
 
-  // const GroupListItem = ({ name, meetup_group_id, group_link, group_key_photo_url, city, country }) => {
-
   render() {
     return (
       <Card centered>
