@@ -5,14 +5,16 @@ import {
   FETCH_USER_SUCCESS,
 } from "../actions/authActions";
 
-import { 
-  FETCH_GROUPS_START, 
-  FETCH_GROUPS_SUCCESS 
+import {
+  FETCH_GROUPS_START,
+  FETCH_GROUPS_SUCCESS,
+  SET_CURRENT_GROUP
 } from '../actions/groupActions';
 
 
 const initialState = {
   loading: false,
+  currentGroup: null,
   user: {}
 }
 
@@ -30,6 +32,10 @@ const userReducer = produce((draft, action) => {
       draft.loading = false
       draft.user.groups = action.payload
       return;
+    case SET_CURRENT_GROUP:
+      draft.currentGroup = action.groupId
+      return;
+
 
     default:
       return;

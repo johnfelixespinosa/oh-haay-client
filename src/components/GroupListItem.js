@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Image, Icon, Button, Modal, Header } from 'semantic-ui-react'
+// import { connect } from 'react-redux';
+// import { setCurrentGroup } from '../actions/groupActions';
 import './GroupListItem.css';
 
 class GroupListItem extends Component {
@@ -38,4 +40,13 @@ class GroupListItem extends Component {
     );
   }
 }
+
+// const mapDispatchToProps = dispatch => ({
+//   setCurrentGroup(id) {
+//     return () => {
+//       dispatch(setCurrentGroup(id));
+//     };
+//   },
+// });
+
 export default GroupListItem;

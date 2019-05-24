@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { getQueryParams } from './utils';
 import { connect } from 'react-redux';
-import { fetchUser } from './actions/authActions'
-import { fetchUserGroups } from './actions/groupActions';
-// import { fetchUserGroupsEvents } from './actions/eventActions';
+import * as authActions from './actions/authActions';
+import * as groupActions from './actions/groupActions'; 
 import Login from './containers/Login';
 import Main from './containers/Main';
 
@@ -45,9 +44,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  fetchUser,
-  fetchUserGroups,
-  // fetchUserGroupsEvents
-}
+  ...authActions,
+  ...groupActions,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

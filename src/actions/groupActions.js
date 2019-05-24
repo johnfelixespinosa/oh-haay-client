@@ -1,5 +1,6 @@
 export const FETCH_GROUPS_START = 'FETCH_GROUPS_START';
 export const FETCH_GROUPS_SUCCESS = 'FETCH_GROUPS_SUCCESS';
+export const SET_CURRENT_GROUP = 'SET_CURRENT_GROUP';
 // export const FETCH_USER_ERROR = 'FETCH_USER_ERROR';
 
 export const fetchUserGroups = token => {
@@ -25,4 +26,11 @@ export const fetchUserGroupsAPI = token => {
     }
   })
     .then(response => response.json());
+}
+
+export const setCurrentGroup = groupId => {
+  return {
+    type: SET_CURRENT_GROUP,
+    groupId,
+  };
 }
