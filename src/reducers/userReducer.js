@@ -3,7 +3,7 @@ import produce from 'immer';
 import {
   FETCH_USER_START,
   FETCH_USER_SUCCESS,
-} from "../actions/authActions";
+} from "../actions/userActions";
 
 import {
   FETCH_USER_GROUPS_START,

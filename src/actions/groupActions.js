@@ -2,7 +2,6 @@ export const FETCH_USER_GROUPS_START = 'FETCH_USER_GROUPS_START';
 export const FETCH_USER_GROUPS_SUCCESS = 'FETCH_USER_GROUPS_SUCCESS';
 export const SET_CURRENT_GROUP = 'SET_CURRENT_GROUP';
 export const FETCH_OHHAAYS_SUCCESS = 'FETCH_OHHAAYS_SUCCESS';
-// export const FETCH_USER_ERROR = 'FETCH_USER_ERROR';
 
 export const fetchUserGroups = token => {
   return dispatch => {

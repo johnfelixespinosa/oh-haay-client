@@ -1,6 +1,5 @@
 export const FETCH_EVENTS_START = 'FETCH_EVENTS_START';
 export const FETCH_EVENTS_SUCCESS = 'FETCH_EVENTS_SUCCESS';
-// export const FETCH_USER_ERROR = 'FETCH_USER_ERROR';
 
 export const fetchUserGroupsEvents = token => {
   return dispatch => {

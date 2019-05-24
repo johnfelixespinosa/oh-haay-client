@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getQueryParams } from './utils';
 import { connect } from 'react-redux';
-import * as authActions from './actions/authActions';
+import * as userActions from './actions/userActions';
 import * as groupActions from './actions/groupActions'; 
 import Login from './containers/Login';
 import Main from './containers/Main';
@@ -44,7 +44,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  ...authActions,
+  ...userActions,
   ...groupActions,
 };
 

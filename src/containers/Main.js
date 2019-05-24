@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Menu, Button } from 'semantic-ui-react'
-import GroupsList from '../containers/GroupsList';
+import GroupsList from './GroupsList';
 import UserCard from '../components/UserCard';
 import './Main.css'
 
