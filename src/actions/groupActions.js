@@ -1,16 +1,16 @@
-export const FETCH_GROUPS_START = 'FETCH_GROUPS_START';
-export const FETCH_GROUPS_SUCCESS = 'FETCH_GROUPS_SUCCESS';
+export const FETCH_USER_GROUPS_START = 'FETCH_USER_GROUPS_START';
+export const FETCH_USER_GROUPS_SUCCESS = 'FETCH_USER_GROUPS_SUCCESS';
 export const SET_CURRENT_GROUP = 'SET_CURRENT_GROUP';
 export const FETCH_OHHAAYS_SUCCESS = 'FETCH_OHHAAYS_SUCCESS';
 // export const FETCH_USER_ERROR = 'FETCH_USER_ERROR';
 
 export const fetchUserGroups = token => {
   return dispatch => {
-    dispatch({ type: FETCH_GROUPS_START })
+    dispatch({ type: FETCH_USER_GROUPS_START })
     fetchUserGroupsAPI(token)
       .then(groups => {
         dispatch({
-          type: FETCH_GROUPS_SUCCESS,
+          type: FETCH_USER_GROUPS_SUCCESS,
           payload: groups
         })
       })
