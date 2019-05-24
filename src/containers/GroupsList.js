@@ -26,8 +26,8 @@ class GroupsList extends Component {
               country={group.country}
               group={group}
             />
-            
           ))}
+          
         </Card.Group>
       </div>
     )

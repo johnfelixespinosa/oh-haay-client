@@ -28,6 +28,7 @@ class GroupListItem extends Component {
 
           <Card.Description textAlign="center"> 
             <Modal trigger={<Button onClick={() => setCurrentGroup(this.state.token, this.props.group)}>oh-haay!</Button>} closeIcon>
+            <Modal.Header>Members saying haay!</Modal.Header>
               <GroupModal />
             </Modal>
           </Card.Description>
