@@ -28,10 +28,10 @@ export const fetchUserGroupsAPI = token => {
     .then(response => response.json());
 }
 
-export const setCurrentGroup = (token, groupId) => {
+export const setCurrentGroup = (token, group) => {
   return dispatch => {
-    dispatch({ type: SET_CURRENT_GROUP, groupId })
-    fetchGroupOhHaaysAPI(token, groupId)
+    dispatch({ type: SET_CURRENT_GROUP, group })
+    fetchGroupOhHaaysAPI(token, group)
       .then(ohHaays => {
         dispatch({
           type: FETCH_OHHAAYS_SUCCESS,

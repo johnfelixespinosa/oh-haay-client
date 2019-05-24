@@ -24,6 +24,7 @@ class GroupsList extends Component {
               group_key_photo_url={group.group_key_photo_url}
               city={group.city}
               country={group.country}
+              group={group}
             />
             
           ))}

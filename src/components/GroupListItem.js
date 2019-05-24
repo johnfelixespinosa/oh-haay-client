@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as groupActions from '../actions/groupActions'; 
-import GroupModal from '../components/GroupModal';
+import GroupModal from './GroupModal';
 import { connect } from 'react-redux';
 import { Card, Image, Icon, Button, Modal } from 'semantic-ui-react'
 import './GroupListItem.css';
@@ -20,7 +20,7 @@ class GroupListItem extends Component {
           </Card.Meta>
 
           <Card.Description textAlign="center"> 
-            <Modal trigger={<Button onClick={() => setCurrentGroup(this.state.token, this.props.meetup_group_id)}>oh-haay!</Button>} closeIcon>
+            <Modal trigger={<Button onClick={() => setCurrentGroup(this.state.token, this.props.group)}>oh-haay!</Button>} closeIcon>
               <GroupModal />
             </Modal>
           </Card.Description>
@@ -35,11 +35,4 @@ class GroupListItem extends Component {
   }
 }
 
-// const mapDispatchToProps = dispatch => ({
-//   setCurrentGroup(id) {
-//     return () => {
-//       dispatch(setCurrentGroup(id));
-//     };
-//   },
-// });
 export default connect(null, groupActions)(GroupListItem);

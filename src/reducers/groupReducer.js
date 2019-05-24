@@ -13,7 +13,7 @@ const initialState = {
 const groupReducer = produce((draft, action) => {
   switch (action.type) {
     case SET_CURRENT_GROUP:
-      draft.currentGroup = action.groupId
+      draft.currentGroup = action.group
       return;
 
 
