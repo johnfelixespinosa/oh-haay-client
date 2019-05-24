@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import * as groupActions from '../actions/groupActions'; 
+import { connect } from 'react-redux';
 import { Card, Image, Icon, Button, Modal, Header } from 'semantic-ui-react'
-// import { connect } from 'react-redux';
-// import { setCurrentGroup } from '../actions/groupActions';
 import './GroupListItem.css';
 
 class GroupListItem extends Component {
   state = { open: false }
 
   render() {
+    const { setCurrentGroup } = this.props;
     return (
       <Card centered>
         <Image src={this.props.group_key_photo_url} wrapped ui={false} />
@@ -18,7 +19,7 @@ class GroupListItem extends Component {
           </Card.Meta>
 
           <Card.Description textAlign="center"> 
-            <Modal trigger={<Button>oh-haay!</Button>} closeIcon>
+            <Modal trigger={<Button onClick={() => setCurrentGroup(this.props.meetup_group_id)}>oh-haay!</Button>} closeIcon>
               <Modal.Header>Members saying haay!</Modal.Header>
               <Modal.Content image>
                 <Image wrapped size='medium' src='https://react.semantic-ui.com/images/avatar/large/rachel.png' />
@@ -48,5 +49,4 @@ class GroupListItem extends Component {
 //     };
 //   },
 // });
-
-export default GroupListItem;
+export default connect(null, groupActions)(GroupListItem);
