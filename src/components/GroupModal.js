@@ -14,12 +14,13 @@ class GroupModal extends Component {
           {members && members.map((member) => (
 
             <UserCard
-              key={member.name}
+              key={member.meetup_id}
               name={member.name}
               meetup_id={member.meetup_id}
               meetup_profile_url={member.meetup_profile_url}
               photo_url={member.photo_url}
               city={member.city}
+              message={true}
             />
           ))}
 

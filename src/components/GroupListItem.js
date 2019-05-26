@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as groupActions from '../actions/groupActions'; 
+import * as groupActions from '../actions/groupActions';
 import { getQueryParams } from '../utils';
 import GroupModal from './GroupModal';
 import { connect } from 'react-redux';
@@ -26,9 +26,15 @@ class GroupListItem extends Component {
             <span className='date'>{this.props.city}, {this.props.country}</span>
           </Card.Meta>
 
-          <Card.Description textAlign="center"> 
+          <Card.Description textAlign="center">
             <Modal trigger={<Button onClick={() => setCurrentGroup(this.state.token, this.props.group)}>oh-haay!</Button>} closeIcon>
-            <Modal.Header>Members saying haay!</Modal.Header>
+              <Modal.Header>
+                Members saying haay!
+                <Button floated="right">
+                  {/* onClick={() => setUserStatus(this.state.token, this.props.group)}> */}
+                  Add Status for this group
+                </Button>
+              </Modal.Header>
               <GroupModal />
             </Modal>
           </Card.Description>
