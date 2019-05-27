@@ -18,7 +18,7 @@ class GroupListItem extends Component {
 
   render() {
     const { setCurrentGroup } = this.props;
-    const showStatusForm = this.state.statusFormVisible ? <StatusForm {...this.props}/> : null
+    const showStatusForm = this.state.statusFormVisible ? <StatusForm {...this.props} /> : null
 
     return (
       <Card centered>
@@ -26,7 +26,7 @@ class GroupListItem extends Component {
         <Card.Content>
           <Card.Header>{this.props.name}</Card.Header>
           <Card.Meta>
-            <span className='date'>{this.props.city}, {this.props.country}</span>
+            <span className='location'>{this.props.city}, {this.props.country}</span>
           </Card.Meta>
           <Card.Description textAlign="center">
             <Modal trigger={<Button onClick={() => setCurrentGroup(this.state.token, this.props.group)}>oh-haay!</Button>} closeIcon>

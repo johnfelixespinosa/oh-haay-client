@@ -1,0 +1,5 @@
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
