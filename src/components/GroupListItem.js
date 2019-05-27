@@ -5,6 +5,7 @@ import GroupModal from './GroupModal';
 import { connect } from 'react-redux';
 import { Card, Image, Icon, Button, Modal } from 'semantic-ui-react'
 import './GroupListItem.css';
+import StatusForm from './StatusForm';
 
 class GroupListItem extends Component {
   constructor() {
@@ -13,10 +14,12 @@ class GroupListItem extends Component {
     const params = getQueryParams();
     this.state = { token: params.token };
   }
-  state = { open: false }
+  state = { statusFormVisible: false }
 
   render() {
     const { setCurrentGroup } = this.props;
+    const showStatusForm = this.state.statusFormVisible ? <StatusForm {...this.props}/> : null
+
     return (
       <Card centered>
         <Image src={this.props.group_key_photo_url} wrapped ui={false} />
@@ -25,16 +28,15 @@ class GroupListItem extends Component {
           <Card.Meta>
             <span className='date'>{this.props.city}, {this.props.country}</span>
           </Card.Meta>
-
           <Card.Description textAlign="center">
             <Modal trigger={<Button onClick={() => setCurrentGroup(this.state.token, this.props.group)}>oh-haay!</Button>} closeIcon>
               <Modal.Header>
-                Members saying haay!
-                <Button floated="right">
-                  {/* onClick={() => setUserStatus(this.state.token, this.props.group)}> */}
-                  Add Status for this group
+                Members saying Haay!
+                <Button floated="right" onClick={() => this.setState({ statusFormVisible: !this.state.statusFormVisible })}>
+                  Add Status
                 </Button>
               </Modal.Header>
+              {showStatusForm}
               <GroupModal />
             </Modal>
           </Card.Description>

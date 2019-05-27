@@ -54,3 +54,16 @@ export const fetchGroupMembersAPI = (token, group) => {
   })
     .then(response => response.json());
 }
+
+export const addMemberGroupStatus = (token, group) => {
+  let groupId = group.meetup_group_id
+  return fetch(`http://localhost:3001/api/v1/groups/${groupId}/users`, {
+    method: "GET",
+    headers: {
+      'content-type': 'application/json',
+      'accept': 'application/json',
+      "Authorization": `Bearer ${token}`
+    }
+  })
+    .then(response => response.json());
+}

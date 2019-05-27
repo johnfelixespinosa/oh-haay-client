@@ -29,7 +29,7 @@ class Main extends Component {
         </Container>
 
         <Container>
-          <GroupsList groups={this.props.groups} />
+          <GroupsList groups={this.props.groups} user={this.props.user} />
         </Container>
       </div >
 

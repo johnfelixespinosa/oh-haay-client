@@ -6,6 +6,7 @@ import './GroupsList.css';
 class GroupsList extends Component {
   render() {
     const groups = this.props.groups
+    const user = this.props.user
     const groupsCount = groups && groups.length
 
     return (
@@ -25,6 +26,7 @@ class GroupsList extends Component {
               city={group.city}
               country={group.country}
               group={group}
+              user={user}
             />
           ))}
           
