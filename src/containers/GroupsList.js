@@ -8,6 +8,7 @@ class GroupsList extends Component {
     const groups = this.props.groups
     const user = this.props.user
     const groupsCount = groups && groups.length
+    const setUpEditableForm = this.props.setUpEditableForm
 
     return (
       <div className="group-list">
@@ -27,6 +28,7 @@ class GroupsList extends Component {
               country={group.country}
               group={group}
               user={user}
+              setUpEditableForm={setUpEditableForm}
             />
           ))}
           

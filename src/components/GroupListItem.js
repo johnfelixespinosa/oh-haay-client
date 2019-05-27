@@ -5,7 +5,7 @@ import GroupModal from './GroupModal';
 import { connect } from 'react-redux';
 import { Card, Image, Icon, Button, Modal } from 'semantic-ui-react'
 import './GroupListItem.css';
-import StatusForm from './StatusForm';
+import StatusForm from './Form/StatusForm';
 
 class GroupListItem extends Component {
   constructor() {

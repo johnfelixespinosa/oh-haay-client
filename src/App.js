@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className='App'>
         {this.isLoggedIn()
-          ? <Main token={this.state.token} />
+          ? <Main token={this.state.token}/>
           : <Login />
         }
       </div>
@@ -39,7 +39,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    token: state.token
+    token: state.token,
   }
 }
 
