@@ -3,6 +3,18 @@ export const SETUP_EDIT_FORM = 'SETUP_EDIT_FORM';
 export const EDIT_FORM_PENDING = 'EDIT_FORM_PENDING';
 export const EDIT_FORM_SUCCESS = 'EDIT_FORM_SUCCESS';
 
+export function getFormStatus(state) {
+  return state.statusData.status.data;
+}
+
+export function getFormEdit(state) {
+  return state.statusData.edit.data;
+}
+
+export function getHasChanged(state) {
+  return state.statusData.edit.changed;
+}
+
 export const addChange = (fieldName, fieldValue) => ({
   type: ADD_CHANGE,
   fieldName,
@@ -22,3 +34,18 @@ export const editFormSuccess = form => ({
   type: EDIT_FORM_SUCCESS,
   form
 });
+
+export function setupForm() {
+  return function _resetForm(dispatch, getState) {
+    const form = getFormStatus(getState());
+    dispatch(setNewEditableForm(form));
+  }
+}
+
+export function saveForm() {
+  return function _saveForm(dispatch, getState) {
+    dispatch(editFormPending());
+    const form = getFormEdit(getState());
+    dispatch(editFormSuccess(form));
+  }
+}
