@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Form, Header } from 'semantic-ui-react'
-// import { getFormStatus, getFormEdit, getHasChanged } from "./Selectors";
-// import { setupForm, saveForm } from './Thunk';
 import { addChange, setupForm, saveForm, getFormStatus, getFormEdit, getHasChanged } from '../../actions/statusActions';
 import TextInput from './TextInput';
 import SaveBar from './SaveBar';

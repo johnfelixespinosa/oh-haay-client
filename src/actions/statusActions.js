@@ -47,5 +47,19 @@ export function saveForm() {
     dispatch(editFormPending());
     const form = getFormEdit(getState());
     dispatch(editFormSuccess(form));
+    postUserGroupStatusAPI(token, group, form)
+  }
+}
+
+export const postUserGroupStatusAPI = (token, group, form) => {
+  let groupId = group.meetup_group_id
+  let data = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'accept': 'application/json',
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({ form })
   }
 }
