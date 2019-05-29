@@ -18,6 +18,7 @@ class GroupListItem extends Component {
 
   render() {
     const { setCurrentGroup } = this.props;
+    const setCurrentStatus = this.props.setCurrentStatus;
     const showStatusForm = this.state.statusFormVisible ? <StatusForm {...this.props} /> : null
 
     return (
@@ -33,11 +34,13 @@ class GroupListItem extends Component {
               <Modal.Header>
                 Members saying Haay!
                 <Button floated="right" onClick={() => this.setState({ statusFormVisible: !this.state.statusFormVisible })}>
-                  Add Status
+                  Add/Edit Status
                 </Button>
               </Modal.Header>
               {showStatusForm}
-              <GroupModal />
+              <GroupModal
+                setCurrentStatus={setCurrentStatus}
+              />
             </Modal>
           </Card.Description>
 

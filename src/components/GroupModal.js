@@ -9,10 +9,9 @@ class GroupModal extends Component {
 
     return (
       <div className="group modal">
-        
+
         <Modal.Content>
           {members && members.map((member) => (
-
             <UserCard
               key={member.meetup_id}
               name={member.name}
@@ -20,10 +19,9 @@ class GroupModal extends Component {
               meetup_profile_url={member.meetup_profile_url}
               photo_url={member.photo_url}
               city={member.city}
-              message={true}
+              setCurrentStatus={this.props.setCurrentStatus}
             />
           ))}
-
         </Modal.Content>
       </div>
     );
@@ -35,6 +33,5 @@ const mapStateToProps = (state) => {
     members: state.groupData.currentGroup.members
   }
 }
-
 
 export default connect(mapStateToProps)(GroupModal);

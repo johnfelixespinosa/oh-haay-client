@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Menu, Button } from 'semantic-ui-react'
 import GroupsList from './GroupsList';
-import UserCard from '../components/UserCard';
+import MainUserCard from '../components/MainUserCard';
 import './Main.css'
 
 class Main extends Component {
@@ -25,7 +25,7 @@ class Main extends Component {
         </Container>
 
         <Container>
-          <UserCard {...this.props.user} />
+          <MainUserCard {...this.props.user} />
         </Container>
 
         <Container>

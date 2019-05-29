@@ -30,7 +30,6 @@ export const fetchUserGroupsAPI = token => {
 
 export const setCurrentGroup = (token, group) => {
   return dispatch => {
-    console.log("TOKEN IN ACTION", token)
     dispatch({ type: SET_CURRENT_GROUP, group })
     fetchGroupMembersAPI(token, group)
       .then(members => {

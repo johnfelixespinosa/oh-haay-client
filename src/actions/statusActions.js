@@ -2,6 +2,8 @@ export const ADD_CHANGE = 'ADD_CHANGE';
 export const SETUP_EDIT_FORM = 'SETUP_EDIT_FORM';
 export const EDIT_FORM_PENDING = 'EDIT_FORM_PENDING';
 export const EDIT_FORM_SUCCESS = 'EDIT_FORM_SUCCESS';
+export const SET_MEMBERS_STATUS = 'SET_MEMBERS_STATUS';
+export const SET_MEMBERS_STATUS_SUCCESS = 'SET_MEMBERS_STATUS_SUCCESS';
 
 export function getFormStatus(state) {
   return state.statusData.status.data;
@@ -49,12 +51,10 @@ export function saveForm(token, group) {
     dispatch(editFormSuccess(form));
     postUserGroupStatusAPI(token, group, form)
     console.log("FORM", form)
-    console.log("GROUP", group)
   }
 }
 
 export const postUserGroupStatusAPI = (token, group, form) => {
-  // let groupId = group.meetup_group_id
   let body = JSON.stringify({
     status: {
       working_on: form.workingOn,
@@ -72,5 +72,32 @@ export const postUserGroupStatusAPI = (token, group, form) => {
     },
     body: body
   }
+  console.log("body", body)
   return fetch(`http://localhost:3001/api/v1/statuses/new`, data)
+}
+
+export const setCurrentStatus = (token, group) => {
+  return dispatch => {
+    dispatch({ type: SET_MEMBERS_STATUS, group })
+    fetchGroupMembersStatusAPI(token, group)
+      .then(status => {
+        dispatch({
+          type: SET_MEMBERS_STATUS_SUCCESS,
+          payload: status
+        })
+      })
+  }
+}
+
+export const fetchGroupMembersStatusAPI = (token, group) => {
+  let groupId = group.meetup_group_id
+  return fetch(`http://localhost:3001/api/v1/statuses/${groupId}/fetch`, {
+    method: "GET",
+    headers: {
+      'content-type': 'application/json',
+      'accept': 'application/json',
+      "Authorization": `Bearer ${token}`
+    }
+  })
+    .then(response => response.json());
 }

@@ -3,6 +3,7 @@ import { getQueryParams } from './utils';
 import { connect } from 'react-redux';
 import * as userActions from './actions/userActions';
 import * as groupActions from './actions/groupActions'; 
+import * as statusActions from './actions/statusActions'; 
 import Login from './containers/Login';
 import Main from './containers/Main';
 
@@ -46,6 +47,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   ...userActions,
   ...groupActions,
+  ...statusActions,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

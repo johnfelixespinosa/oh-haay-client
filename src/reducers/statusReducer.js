@@ -5,10 +5,13 @@ import {
   ADD_CHANGE,
   SETUP_EDIT_FORM,
   EDIT_FORM_PENDING,
-  EDIT_FORM_SUCCESS
+  EDIT_FORM_SUCCESS,
+  SET_MEMBERS_STATUS,
+  SET_MEMBERS_STATUS_SUCCESS,
 } from '../actions/statusActions';
 
 const initialState = {
+  currentUserGroupStatus: null,
   status: {
     data: {
       workingOn: null,
@@ -28,6 +31,13 @@ const statusReducer = produce((draft, action) => {
     case EDIT_FORM_SUCCESS:
       draft.data = action.form
       return;
+    case SET_MEMBERS_STATUS:
+      draft.currentUserGroupStatus = action.group
+      return;
+      case SET_MEMBERS_STATUS_SUCCESS:
+      draft.currentUserGroupStatus.status = action.payload
+      return;
+
     default:
       return;
   }
@@ -36,7 +46,7 @@ const statusReducer = produce((draft, action) => {
 const editReducer = produce((draft, action) => {
   switch (action.type) {
     case ADD_CHANGE:
-      const newForm = draft.data ;
+      const newForm = draft.data;
       newForm[action.fieldName] = action.fieldValue;
       draft.changed = true
       draft.data = newForm
