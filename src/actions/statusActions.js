@@ -42,17 +42,27 @@ export function setupForm() {
   }
 }
 
-export function saveForm() {
+export function saveForm(token, group) {
   return function _saveForm(dispatch, getState) {
     dispatch(editFormPending());
     const form = getFormEdit(getState());
     dispatch(editFormSuccess(form));
     postUserGroupStatusAPI(token, group, form)
+    console.log("FORM", form)
+    console.log("GROUP", group)
   }
 }
 
 export const postUserGroupStatusAPI = (token, group, form) => {
-  let groupId = group.meetup_group_id
+  // let groupId = group.meetup_group_id
+  let body = JSON.stringify({
+    status: {
+      working_on: form.workingOn,
+      need: form.inNeedOf,
+      offering: form.offering
+    },
+    groupId: group.meetup_group_id
+  });
   let data = {
     method: 'POST',
     headers: {
@@ -60,6 +70,7 @@ export const postUserGroupStatusAPI = (token, group, form) => {
       'accept': 'application/json',
       "Authorization": `Bearer ${token}`
     },
-    body: JSON.stringify({ form })
+    body: body
   }
+  return fetch(`http://localhost:3001/api/v1/statuses/new`, data)
 }

@@ -4,8 +4,15 @@ import { Form, Header } from 'semantic-ui-react'
 import { addChange, setupForm, saveForm, getFormStatus, getFormEdit, getHasChanged } from '../../actions/statusActions';
 import TextInput from './TextInput';
 import SaveBar from './SaveBar';
+import { getQueryParams } from '../../utils';
 
 class StatusForm extends Component {
+  constructor() {
+    super();
+
+    const params = getQueryParams();
+    this.state = { token: params.token };
+  }
 
   componentWillMount() {
     this.props.setUpEditableForm();
@@ -18,8 +25,9 @@ class StatusForm extends Component {
       formStatus,
       formEdit,
       hasChanged,
-      saveChanges,
     } = this.props;
+
+    const { saveChanges } = this.props;
 
     if (!formEdit || !formStatus) {
       return <span>LOADING</span>;
@@ -43,7 +51,7 @@ class StatusForm extends Component {
         <SaveBar
           onDiscardAction={discardChanges}
           open={hasChanged}
-          onSaveAction={saveChanges}
+          onSaveAction={() => saveChanges(this.state.token, this.props.group)}
         />
       </Form >
     )
@@ -58,7 +66,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addChange: (fieldName, fieldValue) => dispatch(addChange(fieldName, fieldValue)),
   discardChanges: () => dispatch(setupForm()),
-  saveChanges: () => dispatch(saveForm()),
+  saveChanges: (token, group) => dispatch(saveForm(token, group)),
   setUpEditableForm: () => dispatch(setupForm()),
 });
 
