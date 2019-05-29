@@ -12,17 +12,54 @@ class GroupListItem extends Component {
     super();
 
     const params = getQueryParams();
-    this.state = { token: params.token };
+    this.state = {
+      statusFormVisible: false,
+      token: params.token,
+      status: {
+        working_on: "",
+        need: "",
+        offering: "",
+      }
+    };
   }
-  state = { statusFormVisible: false }
 
+  onSubmitStatus = event => {
+    event.preventDefault()
+    const token = this.state.token
+    const group = this.props.group
+    const status = this.state.status
+    console.log("NEW_STATUS_GROUP:", group)
+    console.log("STATUS:", status)
+    this.props.addStatus(token, group, status)
+  }
+
+  handleStatusChange = event => {
+    this.setState({ 
+      status: {
+        ...this.state.status,
+        [event.target.name]: event.target.value
+      },
+    });
+  }
+    
   render() {
+
+    const submitButtonText = this.props.group.status ? "Edit Status" : "Submit Status"
     const { setCurrentGroup } = this.props;
-    const setCurrentStatus = this.props.setCurrentStatus;
-    const showStatusForm = this.state.statusFormVisible ? <StatusForm {...this.props} /> : null
+    const showStatusForm = this.state.statusFormVisible ?
+      <StatusForm
+        status={this.state.status}
+        group={this.props.group}
+        submitButtonText={submitButtonText}
+        addUserStatus={this.props.addUserStatus}
+        handleStatusChange={this.handleStatusChange}
+        onSubmitStatus={this.onSubmitStatus}
+      />
+
+      : null
 
     return (
-      <Card centered>
+      < Card centered>
         <Image src={this.props.group_key_photo_url} wrapped ui={false} />
         <Card.Content>
           <Card.Header>{this.props.name}</Card.Header>
@@ -38,9 +75,7 @@ class GroupListItem extends Component {
                 </Button>
               </Modal.Header>
               {showStatusForm}
-              <GroupModal
-                setCurrentStatus={setCurrentStatus}
-              />
+              <GroupModal />
             </Modal>
           </Card.Description>
 
@@ -49,7 +84,7 @@ class GroupListItem extends Component {
           <Icon name='barcode' />
           {this.props.meetup_group_id}
         </Card.Content>
-      </Card>
+      </Card >
     );
   }
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import GroupListItem from '../components/GroupListItem';
+import { connect } from 'react-redux';
+import { addStatus } from '../actions/statusActions';
 import { Card } from 'semantic-ui-react'
 import './GroupsList.css';
 
@@ -8,7 +10,6 @@ class GroupsList extends Component {
     const groups = this.props.groups
     const user = this.props.user
     const groupsCount = groups && groups.length
-    const setUpEditableForm = this.props.setUpEditableForm
 
     return (
       <div className="group-list">
@@ -28,7 +29,7 @@ class GroupsList extends Component {
               country={group.country}
               group={group}
               user={user}
-              setUpEditableForm={setUpEditableForm}
+              addStatus={this.props.addStatus}
             />
           ))}
           
@@ -38,4 +39,4 @@ class GroupsList extends Component {
   }
 }
 
-export default GroupsList;
+export default connect(null, {addStatus})(GroupsList);

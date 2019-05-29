@@ -20,6 +20,7 @@ class GroupModal extends Component {
               photo_url={member.photo_url}
               city={member.city}
               setCurrentStatus={this.props.setCurrentStatus}
+              member={member}
             />
           ))}
         </Modal.Content>

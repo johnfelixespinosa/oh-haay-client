@@ -1,66 +1,25 @@
-export const ADD_CHANGE = 'ADD_CHANGE';
-export const SETUP_EDIT_FORM = 'SETUP_EDIT_FORM';
-export const EDIT_FORM_PENDING = 'EDIT_FORM_PENDING';
-export const EDIT_FORM_SUCCESS = 'EDIT_FORM_SUCCESS';
-export const SET_MEMBERS_STATUS = 'SET_MEMBERS_STATUS';
-export const SET_MEMBERS_STATUS_SUCCESS = 'SET_MEMBERS_STATUS_SUCCESS';
+export const ADD_MEMBERS_STATUS = 'ADD_MEMBERS_STATUS';
+export const ADD_MEMBERS_STATUS_SUCCESS = 'ADD_MEMBERS_STATUS_SUCCESS';
+export const SET_CLICKED_MEMBERS_STATUS = 'SET_CLICKED_MEMBERS_STATUS';
+export const SET_CLICKED_MEMBERS_USER = 'SET_CLICKED_MEMBERS_USER';
+export const SET_CLICKED_MEMBERS_STATUS_SUCCESS = 'SET_CLICKED_MEMBERS_STATUS_SUCCESS';
 
-export function getFormStatus(state) {
-  return state.statusData.status.data;
-}
-
-export function getFormEdit(state) {
-  return state.statusData.edit.data;
-}
-
-export function getHasChanged(state) {
-  return state.statusData.edit.changed;
-}
-
-export const addChange = (fieldName, fieldValue) => ({
-  type: ADD_CHANGE,
-  fieldName,
-  fieldValue
-});
-
-export const setNewEditableForm = form => ({
-  type: SETUP_EDIT_FORM,
-  form,
-});
-
-export const editFormPending = () => ({
-  type: EDIT_FORM_PENDING,
-});
-
-export const editFormSuccess = form => ({
-  type: EDIT_FORM_SUCCESS,
-  form
-});
-
-export function setupForm() {
-  return function _resetForm(dispatch, getState) {
-    const form = getFormStatus(getState());
-    dispatch(setNewEditableForm(form));
+export function addStatus(token, group, status) {
+  return function action(dispatch) {
+    dispatch({ type: ADD_MEMBERS_STATUS, status })
+    postUserGroupStatusAPI(token, group, status)
+    .then(response => {
+      dispatch({
+        type: ADD_MEMBERS_STATUS_SUCCESS,
+        payload: response
+      })
+    })
   }
 }
 
-export function saveForm(token, group) {
-  return function _saveForm(dispatch, getState) {
-    dispatch(editFormPending());
-    const form = getFormEdit(getState());
-    dispatch(editFormSuccess(form));
-    postUserGroupStatusAPI(token, group, form)
-    console.log("FORM", form)
-  }
-}
-
-export const postUserGroupStatusAPI = (token, group, form) => {
+export const postUserGroupStatusAPI = (token, group, status) => {
   let body = JSON.stringify({
-    status: {
-      working_on: form.workingOn,
-      need: form.inNeedOf,
-      offering: form.offering
-    },
+    status: status,
     groupId: group.meetup_group_id
   });
   let data = {
@@ -76,22 +35,27 @@ export const postUserGroupStatusAPI = (token, group, form) => {
   return fetch(`http://localhost:3001/api/v1/statuses/new`, data)
 }
 
-export const setCurrentStatus = (token, group) => {
+export const setCurrentStatus = (token, group, user) => {
   return dispatch => {
-    dispatch({ type: SET_MEMBERS_STATUS, group })
-    fetchGroupMembersStatusAPI(token, group)
+    dispatch({ type: SET_CLICKED_MEMBERS_STATUS, group })
+    dispatch({ type: SET_CLICKED_MEMBERS_USER, user})
+    return fetchGroupMembersStatusAPI(token, group, user)
       .then(status => {
         dispatch({
-          type: SET_MEMBERS_STATUS_SUCCESS,
+          type: SET_CLICKED_MEMBERS_STATUS_SUCCESS,
           payload: status
         })
+        return status
       })
+      
   }
 }
 
-export const fetchGroupMembersStatusAPI = (token, group) => {
+export const fetchGroupMembersStatusAPI = (token, group, member) => {
   let groupId = group.meetup_group_id
-  return fetch(`http://localhost:3001/api/v1/statuses/${groupId}/fetch`, {
+  let userId = member.id
+
+  return fetch(`http://localhost:3001/api/v1/statuses/${userId}/${groupId}/fetch`, {
     method: "GET",
     headers: {
       'content-type': 'application/json',

@@ -1,64 +1,59 @@
 import React, { Component } from 'react';
-import { Popup, Grid, Header, Card } from 'semantic-ui-react';
-import * as statusActions from '../actions/statusActions'; 
+import { Card } from 'semantic-ui-react';
+import * as statusActions from '../actions/statusActions';
 import { connect } from 'react-redux';
 import { getQueryParams } from '../utils';
+import StatusCard from './StatusCard';
 import './UserCard.css';
 
 class UserCard extends Component {
+
   constructor() {
     super();
 
     const params = getQueryParams();
-    this.state = { token: params.token };
+    this.state = {
+      statusVisible: false,
+      token: params.token
+    };
   }
 
   render() {
-    const setCurrentStatus = this.props.setCurrentStatus
-    console.log('GROUP', this.props.group)
+    const showStatus = this.state.statusVisible ?
+      <StatusCard
+        working_on={this.state.working_on}
+        need={this.state.need}
+        offering={this.state.offering}
+      />
+      : null
 
     return (
-      <Popup
-        position='right center'
-        flowing hoverable
-        trigger={
-          <Card
-            className="user-card"
-            centered image={this.props.photo_url}
-            header={this.props.name}
-            meta={this.props.city}
-            onMouseOver={() => setCurrentStatus(this.state.token, this.props.group)}
-          />
-        }
-      >
-        <Grid centered divided columns={3}>
-          <Grid.Column textAlign='center'>
-            <Header as='h4'>Working on</Header>
-
-            <p>{this.props.status.currentUserGroupStatus.status.working_on}</p> 
-            
-            
-          </Grid.Column>
-          <Grid.Column textAlign='center'>
-            <Header as='h4'>Need help with</Header>
-            
-            
-          </Grid.Column>
-          <Grid.Column textAlign='center'>
-            <Header as='h4'>Expert on</Header>
-            
-            
-          </Grid.Column>
-        </Grid>
-      </Popup>
+      <Card.Group>
+        <Card
+          className="user-card"
+          centered image={this.props.photo_url}
+          header={this.props.name}
+          meta={this.props.city}
+          onClick={(e) => this.props.setCurrentStatus(this.state.token, this.props.group, this.props.member)
+            .then((status) => {
+              this.setState({
+                working_on: status.working_on,
+                need: status.need,
+                offering: status.offering,
+                statusVisible: !this.state.statusVisible })})
+            }
+        />
+        {showStatus}
+      </Card.Group >
     );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
+    user: state.userData.user,
     group: state.groupData.currentGroup,
-    status: state.statusData
+    status: state.statusData.currentUserGroupStatus
   }
 }
 

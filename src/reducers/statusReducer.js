@@ -1,73 +1,42 @@
 import produce from 'immer';
-import { combineReducers } from 'redux';
 
 import {
-  ADD_CHANGE,
-  SETUP_EDIT_FORM,
-  EDIT_FORM_PENDING,
-  EDIT_FORM_SUCCESS,
-  SET_MEMBERS_STATUS,
-  SET_MEMBERS_STATUS_SUCCESS,
+  ADD_MEMBERS_STATUS,
+  ADD_MEMBERS_STATUS_SUCCESS,
+  SET_CLICKED_MEMBERS_STATUS,
+  SET_CLICKED_MEMBERS_USER,
+  SET_CLICKED_MEMBERS_STATUS_SUCCESS,
 } from '../actions/statusActions';
 
 const initialState = {
-  currentUserGroupStatus: null,
-  status: {
-    data: {
-      workingOn: null,
-      inNeedOf: null,
-      offering: null
-    },
-  },
-  edit: {
-    status: null,
-    data: null,
-    changed: null,
-  }
+  adding: false,
+  status: null,
+  user: null,
 };
 
 const statusReducer = produce((draft, action) => {
   switch (action.type) {
-    case EDIT_FORM_SUCCESS:
-      draft.data = action.form
+    case ADD_MEMBERS_STATUS:
+      draft.adding = true
       return;
-    case SET_MEMBERS_STATUS:
-      draft.currentUserGroupStatus = action.group
+    case ADD_MEMBERS_STATUS_SUCCESS:
+      draft.adding = false
       return;
-      case SET_MEMBERS_STATUS_SUCCESS:
-      draft.currentUserGroupStatus.status = action.payload
+    case SET_CLICKED_MEMBERS_USER:
+      draft.user = action.user
+      // draft.group = action.group
+      // draft.user = action.user
+      return;
+    case SET_CLICKED_MEMBERS_STATUS:
+      draft.status = action.status
+      return;
+    case SET_CLICKED_MEMBERS_STATUS_SUCCESS:
+      draft.currentUserGroupStatus = action.payload
       return;
 
     default:
       return;
   }
-}, initialState.status)
+}, initialState)
 
-const editReducer = produce((draft, action) => {
-  switch (action.type) {
-    case ADD_CHANGE:
-      const newForm = draft.data;
-      newForm[action.fieldName] = action.fieldValue;
-      draft.changed = true
-      draft.data = newForm
-      return;
-    case SETUP_EDIT_FORM:
-      draft.changed = false
-      draft.data = action.form
-      return;
-    case EDIT_FORM_PENDING:
-      draft.changed = true
-      return;
-    case EDIT_FORM_SUCCESS:
-      draft.changed = false
-      draft.data = action.form
-      return;
-    default:
-      return;
-  }
-}, initialState.edit)
-
-export default combineReducers({
-  status: statusReducer,
-  edit: editReducer,
-});
+export default statusReducer;

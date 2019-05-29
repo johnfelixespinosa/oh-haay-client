@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div className='App'>
         {this.isLoggedIn()
-          ? <Main token={this.state.token}/>
+          ? <Main {...this.props} token={this.state.token}/>
           : <Login />
         }
       </div>
