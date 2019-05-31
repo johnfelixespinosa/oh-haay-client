@@ -58,7 +58,7 @@ class GroupListItem extends Component {
       : null
 
     return (
-      < Card centered>
+      <Card centered>
         <Image src={this.props.group_key_photo_url} wrapped ui={false} />
         <Card.Content>
           <Card.Header>{this.props.name}</Card.Header>

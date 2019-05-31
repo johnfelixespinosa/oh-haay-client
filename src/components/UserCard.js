@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, List } from 'semantic-ui-react';
 import * as statusActions from '../actions/statusActions';
 import { connect } from 'react-redux';
 import { getQueryParams } from '../utils';
@@ -30,8 +30,8 @@ class UserCard extends Component {
     return (
       <Card.Group>
         <Card
-          className="user-card"
-          centered image={this.props.photo_url}
+          centered
+          image={this.props.photo_url}
           header={this.props.name}
           meta={this.props.city}
           onClick={(e) => this.props.setCurrentStatus(this.state.token, this.props.group, this.props.member)
@@ -40,11 +40,14 @@ class UserCard extends Component {
                 working_on: status.working_on,
                 need: status.need,
                 offering: status.offering,
-                statusVisible: !this.state.statusVisible })})
-            }
+                statusVisible: !this.state.statusVisible,
+              })
+            })
+          }
         />
         {showStatus}
-      </Card.Group >
+      </Card.Group>
+
     );
   }
 }

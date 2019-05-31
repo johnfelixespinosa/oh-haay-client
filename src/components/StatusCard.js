@@ -4,19 +4,20 @@ import { Card } from 'semantic-ui-react'
 const StatusCard = ({ working_on, need, offering }) => (
 
   <Card
-    className="user-card"
+    centered
     working_on={working_on}
     need={need}
     offering={offering}
   >
-    <Card.Content>
-      <Card.Header>I'm working on</Card.Header>
-      <Card.Description>{working_on}</Card.Description>
-      <Card.Header>I'm in need of</Card.Header>
-      <Card.Description>{need}</Card.Description>
-      <Card.Header>I can help with</Card.Header>
-      <Card.Description>{offering}</Card.Description>
-    </Card.Content>
+    <Card.Content header="I'm working on" />
+    <Card.Content description={working_on} />
+
+    <Card.Content header="I'm in need of" />
+    <Card.Content description={need} />
+
+    <Card.Content header="I can help with" />
+    <Card.Content description={offering} />
+
   </Card>
 )
 
