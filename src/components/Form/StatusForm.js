@@ -27,7 +27,7 @@ const StatusForm = (props) => {
       />
       <Button
         type="submit">
-        {props.submitButtonText}
+        Submit Status
       </Button>
     </Form >
   )

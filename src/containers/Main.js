@@ -40,7 +40,8 @@ class Main extends Component {
 const mapStateToProps = (state) => {
   return {
     user: state.userData.user,
-    groups: state.userData.user.groups
+    groups: state.userData.user.groups,
+    status: state.statusData.currentUserGroupStatus
   }
 }
 

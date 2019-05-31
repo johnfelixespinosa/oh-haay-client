@@ -31,6 +31,7 @@ class GroupListItem extends Component {
     console.log("NEW_STATUS_GROUP:", group)
     console.log("STATUS:", status)
     this.props.addStatus(token, group, status)
+    this.setState({ statusFormVisible: !this.state.statusFormVisible })
   }
 
   handleStatusChange = event => {
@@ -44,13 +45,11 @@ class GroupListItem extends Component {
     
   render() {
 
-    const submitButtonText = this.props.group.status ? "Edit Status" : "Submit Status"
     const { setCurrentGroup } = this.props;
     const showStatusForm = this.state.statusFormVisible ?
       <StatusForm
         status={this.state.status}
         group={this.props.group}
-        submitButtonText={submitButtonText}
         addUserStatus={this.props.addUserStatus}
         handleStatusChange={this.handleStatusChange}
         onSubmitStatus={this.onSubmitStatus}
