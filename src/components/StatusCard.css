@@ -5,19 +5,16 @@
   src: local('Courgette Regular'), local('Courgette-Regular'), url(http://themes.googleusercontent.com/static/fonts/courgette/v1/BHG8ZtTfO0yYnp02--QxqqCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
 }
 
-.card .card_image {
-  width: inherit;
-  height: inherit;
-  border-radius: 40px;
-}
-
-.ui.modal>.header h2 {
-  display: inline;
+.ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
   padding: 0;
   font-family: 'Courgette';
   font-size: 25px;
   font-weight: 700;
   color: #F64060;
   letter-spacing: -.03em;
-  white-space: nowrap;
+  text-align: center;
+}
+
+.ui.card .meta, .ui.cards>.card .meta {
+  text-align: center;
 }

@@ -15,3 +15,12 @@
   white-space: nowrap;
 }
 
+.ui.inverted.menu {
+  background: #66C7F4;
+}
+
+.ui.button {
+  background: #F23F5F;
+  font-family: 'Helvetica';
+}
+

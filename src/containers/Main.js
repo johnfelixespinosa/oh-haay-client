@@ -12,13 +12,13 @@ class Main extends Component {
     return (
       <div>
         <Container>
-          <Menu fixed="top" inverted color="black">
+          <Menu fixed="top" inverted>
             <Menu.Item>
               <h1 className="oh-haay-logo">oh-haay!</h1>
             </Menu.Item>
             <Menu.Menu position="right">
               <Menu.Item>
-                <Button color="grey">Logout</Button>
+                <Button>Logout</Button>
               </Menu.Item>
             </Menu.Menu>
           </Menu>

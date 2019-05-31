@@ -66,9 +66,9 @@ class GroupListItem extends Component {
             <span className='location'>{this.props.city}, {this.props.country}</span>
           </Card.Meta>
           <Card.Description textAlign="center">
-            <Modal trigger={<Button onClick={() => setCurrentGroup(this.state.token, this.props.group)}>oh-haay!</Button>} closeIcon>
+            <Modal trigger={<Button onClick={() => setCurrentGroup(this.state.token, this.props.group)}><Icon name='bullhorn' /></Button>} closeIcon>
               <Modal.Header>
-                Members saying Haay!
+                <h2 className="haay"> oh-haay!</h2>
                 <Button floated="right" onClick={() => this.setState({ statusFormVisible: !this.state.statusFormVisible })}>
                   Add/Edit Status
                 </Button>
