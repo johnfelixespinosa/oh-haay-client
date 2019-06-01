@@ -12,18 +12,12 @@ class App extends Component {
     super();
 
     const params = getQueryParams();
+    localStorage.setItem("token", params)
     this.state = { token: params.token };
   }
 
   isLoggedIn() {
     return !!this.state.token;
-  }
-
-  componentDidMount(){
-    console.log('USER TOKEN:', this.state.token)
-    this.props.fetchUser(this.state.token)
-    this.props.fetchUserGroups(this.state.token)
-    // this.props.fetchUserGroupsEvents(this.state.token)
   }
 
   render() {

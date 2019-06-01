@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, List } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import * as statusActions from '../actions/statusActions';
 import { connect } from 'react-redux';
 import { getQueryParams } from '../utils';
