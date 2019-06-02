@@ -27,7 +27,7 @@ export const postUserGroupStatusAPI = (token, group, status) => {
     headers: {
       'content-type': 'application/json',
       'accept': 'application/json',
-      "Authorization": `Bearer ${token}`
+      "Authorization": `Bearer ${localStorage.getItem("token")}`
     },
     body: body
   }
@@ -60,7 +60,7 @@ export const fetchGroupMembersStatusAPI = (token, group, member) => {
     headers: {
       'content-type': 'application/json',
       'accept': 'application/json',
-      "Authorization": `Bearer ${token}`
+      "Authorization": `Bearer ${localStorage.getItem("token")}`
     }
   })
     .then(response => response.json());
