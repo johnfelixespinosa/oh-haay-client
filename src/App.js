@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
-import { getQueryParams } from './utils';
 import { connect } from 'react-redux';
+import { Route } from "react-router";
 import * as userActions from './actions/userActions';
-import * as groupActions from './actions/groupActions'; 
-import * as statusActions from './actions/statusActions'; 
+import * as groupActions from './actions/groupActions';
+import * as statusActions from './actions/statusActions';
 import Login from './containers/Login';
 import Main from './containers/Main';
 
 class App extends Component {
-  constructor() {
-    super();
 
-    const params = getQueryParams();
-    localStorage.setItem("token", params)
-    this.state = { token: params.token };
-  }
-
-  isLoggedIn() {
-    return !!this.state.token;
+  componentDidMount() {
+    if (window.location.href.indexOf("token") > -1) {
+      this.props.fetchToken();
+    }
   }
 
   render() {
+    
     return (
       <div className='App'>
-        {this.isLoggedIn()
-          ? <Main {...this.props} token={this.state.token}/>
-          : <Login />
-        }
+        
+          {this.props.isLoggedIn
+            ? <Route exact path="/main" component={() => <Main {...this.props} />} />
+            : <Route path="/" component={Login} />
+          }
+        
       </div>
     );
   }
@@ -34,7 +32,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    token: state.token,
+    isLoggedIn: state.userData.isLoggedIn
   }
 }
 

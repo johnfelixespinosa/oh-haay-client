@@ -8,7 +8,6 @@ import './Main.css'
 class Main extends Component {
 
   componentDidMount() {
-    localStorage.setItem("token", this.props.token)
     const token = localStorage.token;
     this.props.fetchUser(token)
     this.props.fetchUserGroups(token)

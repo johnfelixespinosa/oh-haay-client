@@ -3,10 +3,10 @@ export const FETCH_USER_GROUPS_SUCCESS = 'FETCH_USER_GROUPS_SUCCESS';
 export const SET_CURRENT_GROUP = 'SET_CURRENT_GROUP';
 export const FETCH_MEMBERS_SUCCESS = 'FETCH_MEMBERS_SUCCESS';
 
-export const fetchUserGroups = token => {
+export const fetchUserGroups = () => {
   return dispatch => {
     dispatch({ type: FETCH_USER_GROUPS_START })
-    fetchUserGroupsAPI(token)
+    fetchUserGroupsAPI()
       .then(groups => {
         dispatch({
           type: FETCH_USER_GROUPS_SUCCESS,
@@ -16,13 +16,13 @@ export const fetchUserGroups = token => {
   }
 }
 
-export const fetchUserGroupsAPI = token => {
+export const fetchUserGroupsAPI = () => {
   return fetch("http://localhost:3001/api/v1/groups", {
     method: "GET",
     headers: {
       'content-type': 'application/json',
       'accept': 'application/json',
-      "Authorization": `Bearer ${token}`
+      "Authorization": `Bearer ${localStorage.getItem("token")}`
     }
   })
     .then(response => response.json());
@@ -48,7 +48,7 @@ export const fetchGroupMembersAPI = (token, group) => {
     headers: {
       'content-type': 'application/json',
       'accept': 'application/json',
-      "Authorization": `Bearer ${token}`
+      "Authorization": `Bearer ${localStorage.getItem("token")}`
     }
   })
     .then(response => response.json());
@@ -61,7 +61,7 @@ export const addMemberGroupStatus = (token, group) => {
     headers: {
       'content-type': 'application/json',
       'accept': 'application/json',
-      "Authorization": `Bearer ${token}`
+      "Authorization": `Bearer ${localStorage.getItem("token")}`
     }
   })
     .then(response => response.json());
