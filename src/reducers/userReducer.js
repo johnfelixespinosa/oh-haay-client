@@ -5,6 +5,8 @@ import {
   FETCH_TOKEN_SUCCESS,
   FETCH_USER_START,
   FETCH_USER_SUCCESS,
+  LOGOUT_USER_START,
+  LOGOUT_USER_SUCCESS,
 } from "../actions/userActions";
 
 import {
@@ -40,6 +42,14 @@ const userReducer = produce((draft, action) => {
     case FETCH_USER_GROUPS_SUCCESS:
       draft.loading = false
       draft.user.groups = action.payload
+      return;
+    case LOGOUT_USER_START:
+      draft.loading = true
+      return;
+    case LOGOUT_USER_SUCCESS:
+      draft.loading = false
+      draft.isLoggedIn = false
+      draft.user = {}
       return;
     default:
       return;

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Menu, Button } from 'semantic-ui-react'
+import { Container, Menu } from 'semantic-ui-react'
 import GroupsList from './GroupsList';
 import MainUserCard from '../components/MainUserCard';
 import './Main.css'
+import LogoutButton from '../components/LogoutButton';
 
 class Main extends Component {
 
@@ -24,7 +25,7 @@ class Main extends Component {
             </Menu.Item>
             <Menu.Menu position="right">
               <Menu.Item>
-                <Button>Logout</Button>
+                <LogoutButton {...this.props}/>
               </Menu.Item>
             </Menu.Menu>
           </Menu>

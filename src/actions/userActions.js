@@ -7,6 +7,9 @@ export const FETCH_TOKEN_SUCCESS = 'FETCH_TOKEN_SUCCESS';
 export const FETCH_USER_START = 'FETCH_USER_START';
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
 
+export const LOGOUT_USER_START = 'LOGOUT_USER_START';
+export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_SUCCESS';
+
 export const fetchToken = () => {
   return dispatch => {
     dispatch({ type: FETCH_TOKEN_START })
@@ -43,4 +46,15 @@ export const fetchUserAPI = () => {
     }
   })
     .then(response => response.json());
+}
+
+export const logoutUser = () => {
+  return dispatch => {
+    dispatch({ type: LOGOUT_USER_START })
+    localStorage.removeItem("token")
+    dispatch({
+      type: LOGOUT_USER_SUCCESS,
+    })
+    history.push('/')
+  }
 }
