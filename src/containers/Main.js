@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Menu } from 'semantic-ui-react';
+import { NavLink } from "react-router-dom";
+import { Container, Menu, Button } from 'semantic-ui-react';
 import GroupsList from './GroupsList';
 import MainUserCard from '../components/MainUserCard';
 import './Main.css';
@@ -25,7 +26,10 @@ class Main extends Component {
             </Menu.Item>
             <Menu.Menu position="right">
               <Menu.Item>
-                <LogoutButton {...this.props}/>
+                <NavLink to='/about' ><Button>About</Button></NavLink>
+              </Menu.Item>
+              <Menu.Item>
+                <LogoutButton {...this.props} />
               </Menu.Item>
             </Menu.Menu>
           </Menu>

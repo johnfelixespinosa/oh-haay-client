@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route } from "react-router";
+import { Route, Switch } from 'react-router';
 import * as userActions from './actions/userActions';
 import * as groupActions from './actions/groupActions';
 import * as statusActions from './actions/statusActions';
 import Login from './containers/Login';
 import Main from './containers/Main';
+import About from './components/About'
 
 class App extends Component {
 
@@ -16,15 +17,19 @@ class App extends Component {
   }
 
   render() {
-    
+
     return (
       <div className='App'>
-        
-          {this.props.isLoggedIn
-            ? <Route exact path="/main" component={() => <Main {...this.props} />} />
-            : <Route path="/" component={Login} />
-          }
-        
+
+        {this.props.isLoggedIn
+          ?
+          <Switch>
+            <Route exact path="/main" component={() => <Main {...this.props} />} />
+            <Route exact path="/about" component={() => <About {...this.props} />} />
+          </Switch>
+          : <Route path="/" component={Login} />
+        }
+
       </div>
     );
   }
