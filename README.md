@@ -24,7 +24,7 @@ Oh-Haay! is an application that directly populates a users groups through the Me
   * [Unsplash Images](https://unsplash.com/ "Unsplash")
 
  #### Backend Server
-  #### Back-end: Ruby on Rails
+  * [Ruby on Rails](https://rubyonrails.org/ "Ruby on Rails")
   * [Json Web Tokens](https://jwt.io/ "JWT")
   * [Meetup API](https://www.meetup.com/meetup_api/ "Meetup API")
   * [Rest Client](https://github.com/rest-client/rest-client "Rest Client")
