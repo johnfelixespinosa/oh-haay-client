@@ -16,19 +16,19 @@ Oh-Haay! is an application that directly populates a users groups through the Me
 
 ### Technologies and Resources
   #### Frontend Client
-  * JavaScript libraries (React, Redux)
-  * Redux Thunk middleware
-  * Semantic Ui
-  * Immer
+  * [JavaScript libraries (React, Redux)](https://react-redux.js.org/ "React Redux")
+  * [Redux Thunk Middleware](https://github.com/reduxjs/redux-thunk "Redux Thunk")
+  * [React-Router](https://github.com/ReactTraining/react-router "React Router")
+  * [Semantic UI React](https://react.semantic-ui.com/ "Semantic UI React")
+  * [Immerjs](https://github.com/immerjs/immer "Immerjs")
+  * [Unsplash Images](https://unsplash.com/ "Unsplash")
 
  #### Backend Server
-  * Back-end: Ruby on Rails
-  * Json Web Tokens
-  * Meetup API
+  #### Back-end: Ruby on Rails
+  * [Json Web Tokens](https://jwt.io/ "JWT")
+  * [Meetup API](https://www.meetup.com/meetup_api/ "Meetup API")
+  * [Rest Client](https://github.com/rest-client/rest-client "Rest Client")
   
-  * Unsplash for background images
-
-
 #### Report bugs using Github's [issues](https://github.com/johnfelixespinosa/oh-haay-client/issues)
   Use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/johnfelixespinosa/oh-haay-client/issues/new); it's that easy!
 
