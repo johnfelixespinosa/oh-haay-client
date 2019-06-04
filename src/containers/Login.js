@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LoginButton from '../components/LoginButton';
-import { Segment, Dimmer } from 'semantic-ui-react'
+import { Segment, Dimmer } from 'semantic-ui-react';
 import './Login.css';
 
 class Login extends Component {

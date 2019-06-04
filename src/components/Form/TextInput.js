@@ -1,5 +1,5 @@
 import React  from 'react';
-import { TextArea, Header } from 'semantic-ui-react'
+import { TextArea, Header } from 'semantic-ui-react';
 
 const TextInput = ({onChange, title, value, name}) => (
   <div>

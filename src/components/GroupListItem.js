@@ -3,7 +3,7 @@ import * as groupActions from '../actions/groupActions';
 import { getQueryParams } from '../utils';
 import GroupModal from './GroupModal';
 import { connect } from 'react-redux';
-import { Card, Image, Icon, Button, Modal } from 'semantic-ui-react'
+import { Card, Image, Icon, Button, Modal } from 'semantic-ui-react';
 import './GroupListItem.css';
 import StatusForm from './Form/StatusForm';
 

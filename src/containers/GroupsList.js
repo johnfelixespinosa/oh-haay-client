@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import GroupListItem from '../components/GroupListItem';
 import { connect } from 'react-redux';
 import { addStatus } from '../actions/statusActions';
-import { Card } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react';
 import './GroupsList.css';
 
 class GroupsList extends Component {

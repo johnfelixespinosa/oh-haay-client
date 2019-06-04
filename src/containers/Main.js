@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Menu } from 'semantic-ui-react'
+import { Container, Menu } from 'semantic-ui-react';
 import GroupsList from './GroupsList';
 import MainUserCard from '../components/MainUserCard';
-import './Main.css'
+import './Main.css';
 import LogoutButton from '../components/LogoutButton';
 
 class Main extends Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Header, Button } from 'semantic-ui-react'
+import { Form, Header, Button } from 'semantic-ui-react';
 import TextInput from './TextInput';
 
 const StatusForm = (props) => {

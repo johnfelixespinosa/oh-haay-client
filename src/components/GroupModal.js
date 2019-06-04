@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Modal } from 'semantic-ui-react'
+import { Modal } from 'semantic-ui-react';
 import UserCard from './UserCard';
 
 class GroupModal extends Component {
