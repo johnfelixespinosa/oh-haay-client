@@ -1,0 +1,44 @@
+.login {
+  background-image: url("../oh-haay-bg.jpg");
+  min-height: 1200px;
+  height: auto;
+  background-position: right -470px top 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+@font-face {
+  font-family: 'Courgette';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Courgette Regular'), local('Courgette-Regular'), url(http://themes.googleusercontent.com/static/fonts/courgette/v1/BHG8ZtTfO0yYnp02--QxqqCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}
+
+.oh-haay-logo-home {
+  padding: 0;
+  font-family: 'Courgette';
+  font-size: 65px;
+  font-weight: 700;
+  color: #F64060;
+  letter-spacing: -.03em;
+  white-space: nowrap;
+}
+
+.ui.red.change button:hover {
+  background-color: red!important;
+}
+
+.login-intro {
+  padding: 0;
+  font-family: 'Arial';
+  font-size: 30px;
+  font-weight: 900;
+  color: #66C7F4;
+  letter-spacing: -.03em;
+  white-space: nowrap;
+}
+
+.dimmer {
+  background-color: #66C7F4;
+}
