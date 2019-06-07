@@ -1,6 +1,7 @@
-# Oh-Haay!
+# Oh-Haay! React Redux Frontend Client
 
-### [Demo](https://jespnpcbuilderapp.herokuapp.com/)
+### [Live Site](https://stoic-archimedes-4e365d.netlify.com/)
+### [Rails API Repo](https://github.com/johnfelixespinosa/oh-haay)
 
 ### WHY?
 For when you're attending your next tech meetup, and after everyone introduces theirselves, what they're working on, and what they don't mind helping others with, if you're like me and aren't too good with remembering names and faces, then you'll know why! Enjoy!
