@@ -17,7 +17,7 @@ export const fetchUserGroupsEvents = token => {
 }
 
 export const fetchUserGroupsEventsAPI = token => {
-  return fetch("http://localhost:3001/api/v1/events", {
+  return fetch("https://peaceful-castle-75215.herokuapp.com/api/v1/events", {
     method: "GET",
     headers: {
       'content-type': 'application/json',

@@ -17,7 +17,7 @@ export const fetchUserGroups = () => {
 }
 
 export const fetchUserGroupsAPI = () => {
-  return fetch("http://localhost:3001/api/v1/groups", {
+  return fetch("https://peaceful-castle-75215.herokuapp.com/api/v1/groups", {
     method: "GET",
     headers: {
       'content-type': 'application/json',
@@ -43,7 +43,7 @@ export const setCurrentGroup = (token, group) => {
 
 export const fetchGroupMembersAPI = (token, group) => {
   let groupId = group.meetup_group_id
-  return fetch(`http://localhost:3001/api/v1/groups/${groupId}/users`, {
+  return fetch(`https://peaceful-castle-75215.herokuapp.com/api/v1/groups/${groupId}/users`, {
     method: "GET",
     headers: {
       'content-type': 'application/json',
@@ -56,7 +56,7 @@ export const fetchGroupMembersAPI = (token, group) => {
 
 export const addMemberGroupStatus = (token, group) => {
   let groupId = group.meetup_group_id
-  return fetch(`http://localhost:3001/api/v1/groups/${groupId}/users`, {
+  return fetch(`https://peaceful-castle-75215.herokuapp.com/api/v1/groups/${groupId}/users`, {
     method: "GET",
     headers: {
       'content-type': 'application/json',

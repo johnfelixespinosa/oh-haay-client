@@ -37,7 +37,7 @@ export const fetchUser = () => {
 }
 
 export const fetchUserAPI = () => {
-  return fetch("http://localhost:3001/api/v1/profile", {
+  return fetch("https://peaceful-castle-75215.herokuapp.com/api/v1/profile", {
     method: "GET",
     headers: {
       'content-type': 'application/json',
