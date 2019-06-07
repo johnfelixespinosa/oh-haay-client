@@ -8,7 +8,7 @@ For when you're attending your next tech meetup, and after everyone introduces t
 
   ![Homepage Image]( src/images/home-screenshot.png "Homepage")
 
-  Adding user status to specific group.
+  Adding user status to a specific group.
 
   ![Demo Gif]( src/images/oh-haay-demo.gif "Demo")
 
