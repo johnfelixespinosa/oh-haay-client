@@ -30,7 +30,9 @@ class GroupListItem extends Component {
     const status = this.state.status
     console.log("NEW_STATUS_GROUP:", group)
     console.log("STATUS:", status)
+    console.log("A");
     this.props.addStatus(token, group, status)
+    console.log('B');
     this.setState({ statusFormVisible: !this.state.statusFormVisible })
   }
 

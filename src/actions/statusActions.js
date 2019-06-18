@@ -32,7 +32,7 @@ export const postUserGroupStatusAPI = (token, group, status) => {
     body: body
   }
   console.log("body", body)
-  return fetch(`https://peaceful-castle-75215.herokuapp.com/api/v1/statuses/new`, data)
+  return fetch(`http://localhost:3001/api/v1/statuses/new`, data)
 }
 
 export const setCurrentStatus = (token, group, user) => {
@@ -55,7 +55,7 @@ export const fetchGroupMembersStatusAPI = (token, group, member) => {
   let groupId = group.meetup_group_id
   let userId = member.id
 
-  return fetch(`https://peaceful-castle-75215.herokuapp.com/api/v1/statuses/${userId}/${groupId}/fetch`, {
+  return fetch(`http://localhost:3001/api/v1/statuses/${userId}/${groupId}/fetch`, {
     method: "GET",
     headers: {
       'content-type': 'application/json',
