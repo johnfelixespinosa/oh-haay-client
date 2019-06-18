@@ -4,8 +4,6 @@ export const SET_CURRENT_GROUP = 'SET_CURRENT_GROUP';
 export const FETCH_MEMBERS_SUCCESS = 'FETCH_MEMBERS_SUCCESS';
 
 // const BASE_API = "http://localhost:3001/api/v1"
-const NETLIFY_BASE_API = "https://peaceful-castle-75215.herokuapp.com/api/v1"
-
 // const API_CONSTANT_MAP = {
 //   "groups": `${BASE_API}/groups/`,
 //   "group_members": `${BASE_API}/groups/`,
@@ -14,7 +12,7 @@ const NETLIFY_BASE_API = "https://peaceful-castle-75215.herokuapp.com/api/v1"
 //   "profile": `${BASE_API}/profile`,
 //   "login": `${BASE_API}/meetup`
 // }
-
+const NETLIFY_BASE_API = "https://peaceful-castle-75215.herokuapp.com/api/v1"
 const NETFLIFY_API_CONSTANT_MAP = {
   "groups": `${NETLIFY_BASE_API}/groups/`,
   "group_members": `${NETLIFY_BASE_API}/groups/`,
