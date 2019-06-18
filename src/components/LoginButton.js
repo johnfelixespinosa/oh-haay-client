@@ -5,7 +5,7 @@ class LoginButton extends Component {
   render() {
     return (
       <Button
-        href={`https://peaceful-castle-75215.herokuapp.com/api/v1/meetup`}
+        href={`http://localhost:3001/api/v1/meetup`}
         size="massive"
         className="ui red change"
         color="pink"
