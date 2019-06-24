@@ -1,11 +1,28 @@
 import React, { Component } from 'react';
-import { Container, Menu, Button, Icon, Image } from 'semantic-ui-react';
+import { Container, Menu, Button, Icon, Image, Form, TextArea } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../components/LogoutButton';
+// import CommentForm from '../components/CommentForm';
 import StatusScreenshot from '../images/oh-haay-status.png';
 import './About.css';
 
 class About extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { commentValue: '' };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ commentValue: event.target.value });
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.commentValue);
+    event.preventDefault();
+  }
 
   render() {
     return (
@@ -60,10 +77,38 @@ class About extends Component {
             </div>
           </Container>
         </div >
+        <div>
+          <Form
+            onSubmit={this.handleSubmit}
+          >
+            <Form.Field
+              control={TextArea}
+              value={this.state.value}
+              onChange={this.handleChange}
+              label='Comment'
+              placeholder='add comment...'
+            />
+            <Form.Field control={Button}>Submit</Form.Field>
+          </Form>
+
+          {/* <form onSubmit={this.handleSubmit}>
+            <label>
+              Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+            </label>
+            <input type="submit" value="Submit" />
+          </form> */}
+
+        </div>
       </div >
+
+
+
 
     );
   }
 }
+
+//thinking in react blog post
 
 export default About;
