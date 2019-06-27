@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Menu, Button, Icon, Image } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../components/LogoutButton';
-import CommentTable from '../components/Comments/CommentTable';
+import CommentBox from '../components/Comments/CommentBox';
 import StatusScreenshot from '../images/oh-haay-status.png';
 import './About.css';
 
@@ -63,27 +63,12 @@ class About extends Component {
         </div >
 
         <div className="comments">
-          <CommentTable comments={mockComments}/>
+          <CommentBox />
         </div>
 
       </div >
     );
   }
 }
-
-const mockComments = [ 
-  {
-    id: 1,
-    text: "First Comment"
-  }, 
-  {
-    id: 2,
-    text: "Second Comment"
-  }, 
-  {
-    id: 3,
-    text: "Third Comment"
-  }, 
-];
 
 export default About;
