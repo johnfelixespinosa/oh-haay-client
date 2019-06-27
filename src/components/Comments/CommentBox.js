@@ -29,7 +29,7 @@ class CommentBox extends Component {
     return (
       <div className="comment-box">
         <CommentList comments={this.state.comments} />
-        <CommentForm />
+        <CommentForm onSubmit={this.addComment} />
       </div >
     );
   }
