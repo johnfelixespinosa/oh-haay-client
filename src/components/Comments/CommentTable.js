@@ -1,16 +1,18 @@
 import React from 'react';
-// import { Comment } from 'semantic-ui-react'
+import { Comment } from 'semantic-ui-react'
 
 const CommentTable = ({ comments }) => (
   <div className="comment-list-container">
     <table className='comment-list' >
       <tbody>
         <ul>
-          {comments.map((comment) =>
-            <li>
-              {comment.text}
-            </li>
-          )}
+          <Comment.Group>
+            {comments.map((comment) =>
+              <Comment>
+                <Comment.Text>{comment.text}</Comment.Text>
+              </Comment>
+            )}
+          </Comment.Group>
         </ul>
       </tbody>
     </table >
