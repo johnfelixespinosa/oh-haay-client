@@ -1,28 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
 
-const CommentBox = () => (
-  <div className="comment-box">
-    <CommentList comments={mockComments} />
-    <CommentForm />
-  </div >
-);
+class CommentBox extends Component {
+  constructor() {
+    super();
 
-const mockComments = [
-  {
-    id: 1,
-    text: "First Comment"
-  },
-  {
-    id: 2,
-    text: "Second Comment"
-  },
-  {
-    id: 3,
-    text: "Third Comment"
-  },
-];
+    this.state = {
+      comments: [
+        {
+          id: 1,
+          text: "First Comment"
+        },
+        {
+          id: 2,
+          text: "Second Comment"
+        },
+        {
+          id: 3,
+          text: "Third Comment"
+        },
+      ],
+    }
+  };
 
+  render() {
+
+    return (
+      <div className="comment-box">
+        <CommentList comments={this.state.comments} />
+        <CommentForm />
+      </div >
+    );
+  }
+
+}
 
 export default CommentBox;
