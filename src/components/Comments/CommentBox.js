@@ -10,14 +10,17 @@ class CommentBox extends Component {
       comments: [
         {
           id: 1,
+          name: "Brad",
           text: "First Comment"
         },
         {
           id: 2,
+          name: "Will",
           text: "Second Comment"
         },
         {
           id: 3,
+          name: "Cathy",
           text: "Third Comment"
         },
       ],

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Comment, Header } from 'semantic-ui-react'
+import { Comment, Header } from 'semantic-ui-react';
+import CommentItem from './CommentItem';
 
 const CommentList = ({ comments }) => (
   <div className="comment-list-container">
@@ -11,9 +12,11 @@ const CommentList = ({ comments }) => (
       </div>
       <Comment.Group>
         {comments.map((comment) =>
-          <Comment>
-            <Comment.Text>{comment.text}</Comment.Text>
-          </Comment>
+          <CommentItem
+            key={comment.id}
+            text={comment.text}
+            name={comment.name}
+          />
         )}
       </Comment.Group>
     </div>
