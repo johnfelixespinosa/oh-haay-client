@@ -1,10 +1,10 @@
 import React from 'react';
 import { Comment } from 'semantic-ui-react';
 
-const CommentItem = ({ key, text, name }) => (
+const CommentItem = ({ text, name }) => (
 
   <div className="comment-item">
-    <Comment key={key}>
+    <Comment>
       <Comment.Content>
         <Comment.Author as='a'>{name}</Comment.Author>
         <Comment.Text>{text}</Comment.Text>
