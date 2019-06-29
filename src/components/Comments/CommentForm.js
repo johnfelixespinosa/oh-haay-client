@@ -28,7 +28,7 @@ class CommentForm extends Component {
       <div className="comment-form-container">
         <div className="comment-form" >
           <Form reply
-            onSubmit={event => this.handleSubmit(event)}
+            onSubmit={this.handleSubmit}
           >
             <Form.TextArea
               onChange={this.handleCommentChange}

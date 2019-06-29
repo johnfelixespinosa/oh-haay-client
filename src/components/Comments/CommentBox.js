@@ -3,29 +3,38 @@ import CommentList from './CommentList';
 import CommentForm from './CommentForm';
 
 class CommentBox extends Component {
-  constructor() {
-    super();
 
-    this.state = {
+  state = {
+    comments: [
+      {
+        id: 1,
+        name: "Brad",
+        text: "First Comment"
+      },
+      {
+        id: 2,
+        name: "Will",
+        text: "Second Comment"
+      },
+      {
+        id: 3,
+        name: "Cathy",
+        text: "Third Comment"
+      },
+    ],
+  }
+
+  addComment = () => {
+    this.setState({
       comments: [
-        {
-          id: 1,
-          name: "Brad",
-          text: "First Comment"
-        },
-        {
-          id: 2,
-          name: "Will",
-          text: "Second Comment"
-        },
-        {
-          id: 3,
-          name: "Cathy",
-          text: "Third Comment"
-        },
-      ],
-    }
-  };
+        ...this.state.comments,
+        this.makeComment()]
+    });
+  }
+
+
+
+
 
   render() {
 
@@ -36,7 +45,7 @@ class CommentBox extends Component {
       </div >
     );
   }
-
 }
+
 
 export default CommentBox;
