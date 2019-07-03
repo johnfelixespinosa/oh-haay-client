@@ -1,51 +1,53 @@
 import React, { Component } from 'react';
-import CommentList from './CommentList';
-import CommentForm from './CommentForm';
 
 class CommentBox extends Component {
+  constructor(props) {
+    super(props);
 
-  state = {
-    comments: [
-      {
-        id: 1,
-        name: "Brad",
-        text: "First Comment"
-      },
-      {
-        id: 2,
-        name: "Will",
-        text: "Second Comment"
-      },
-      {
-        id: 3,
-        name: "Cathy",
-        text: "Third Comment"
-      },
-    ],
+    this.state = {
+      comment: '',
+      comments: ['First Comment', 'Second Comment', 'Third Comment'],
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  addComment = () => {
-    this.setState({
-      comments: [
-        ...this.state.comments,
-        this.makeComment()]
+  handleChange(event) {
+    this.setState({comment: event.target.value});
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState(state => {
+      const comments = [...state.comments, state.comment];
+
+      return {
+        comments,
+        comment: '',
+      };
     });
-  }
-
-
-
-
+  };
 
   render() {
-
     return (
-      <div className="comment-box">
-        <CommentList comments={this.state.comments} />
-        <CommentForm onSubmit={this.addComment} />
-      </div >
+      <div className="comment-list-container">
+      {
+        this.state.comments.map((comment) =>
+          <li>{comment}</li>
+        )
+      }
+      
+      <form onSubmit = { this.handleSubmit } >
+        <label>
+          comment:
+            <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form >
+      </div>
     );
   }
 }
-
 
 export default CommentBox;
