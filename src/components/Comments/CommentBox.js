@@ -21,12 +21,13 @@ class CommentBox extends Component {
     event.preventDefault();
     this.setState(state => {
       const comments = [...state.comments, state.comment];
-
+      
       return {
         comments,
         comment: '',
       };
     });
+    console.log("current state", this.state)
   };
 
   render() {
@@ -51,3 +52,8 @@ class CommentBox extends Component {
 }
 
 export default CommentBox;
+
+// Blog Post
+// Arrow Functions 
+// Detail of setState
+// State vs props - what is state, what is props, what can I do to both?
