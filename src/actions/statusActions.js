@@ -5,7 +5,7 @@ export const SET_CLICKED_MEMBERS_USER = 'SET_CLICKED_MEMBERS_USER';
 export const SET_CLICKED_MEMBERS_STATUS_SUCCESS = 'SET_CLICKED_MEMBERS_STATUS_SUCCESS';
 
 // const BASE_API = "http://localhost:3001/api/v1"
-// const API_CONSTANT_MAP = {
+// const NETLIFY_API_CONSTANT_MAP = {
 //   "groups": `${BASE_API}/groups/`,
 //   "group_members": `${BASE_API}/groups/`,
 //   "new_status": `${BASE_API}/statuses/new`,
@@ -50,7 +50,7 @@ export const postUserGroupStatusAPI = (token, group, status) => {
     body: body
   }
   console.log("body", body)
-  return fetch(API_CONSTANT_MAP.new_status, data)
+  return fetch(NETLIFY_API_CONSTANT_MAP.new_status, data)
 }
 
 export const setCurrentStatus = (token, group, user) => {
@@ -73,7 +73,7 @@ export const fetchGroupMembersStatusAPI = (token, group, member) => {
   let groupId = group.meetup_group_id
   let userId = member.id
 
-  return fetch(API_CONSTANT_MAP.set_status + `${userId}/${groupId}/fetch`, {
+  return fetch(NETLIFY_API_CONSTANT_MAP.set_status + `${userId}/${groupId}/fetch`, {
     method: "GET",
     headers: {
       'content-type': 'application/json',

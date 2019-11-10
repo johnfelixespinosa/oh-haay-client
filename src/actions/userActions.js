@@ -11,7 +11,7 @@ export const LOGOUT_USER_START = 'LOGOUT_USER_START';
 export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_SUCCESS';
 
 // const BASE_API = "http://localhost:3001/api/v1"
-// const API_CONSTANT_MAP = {
+// const NETLIFY_API_CONSTANT_MAP = {
 //   "groups": `${BASE_API}/groups/`,
 //   "group_members": `${BASE_API}/groups/`,
 //   "new_status": `${BASE_API}/statuses/new`,
@@ -56,7 +56,7 @@ export const fetchUser = () => {
 }
 
 export const fetchUserAPI = () => {
-  return fetch(API_CONSTANT_MAP.profile, {
+  return fetch(NETLIFY_API_CONSTANT_MAP.profile, {
     method: "GET",
     headers: {
       'content-type': 'application/json',
