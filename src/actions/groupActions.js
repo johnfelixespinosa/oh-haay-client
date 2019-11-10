@@ -3,25 +3,6 @@ export const FETCH_USER_GROUPS_SUCCESS = 'FETCH_USER_GROUPS_SUCCESS';
 export const SET_CURRENT_GROUP = 'SET_CURRENT_GROUP';
 export const FETCH_MEMBERS_SUCCESS = 'FETCH_MEMBERS_SUCCESS';
 
-// const BASE_API = "http://localhost:3001/api/v1"
-// const NETLIFY_API_CONSTANT_MAP = {
-//   "groups": `${BASE_API}/groups/`,
-//   "group_members": `${BASE_API}/groups/`,
-//   "new_status": `${BASE_API}/statuses/new`,
-//   "set_status": `${BASE_API}/statuses/`,
-//   "profile": `${BASE_API}/profile`,
-//   "login": `${BASE_API}/meetup`
-// }
-const NETLIFY_BASE_API = "https://peaceful-castle-75215.herokuapp.com/api/v1"
-const NETFLIFY_API_CONSTANT_MAP = {
-  "groups": `${NETLIFY_BASE_API}/groups/`,
-  "group_members": `${NETLIFY_BASE_API}/groups/`,
-  "new_status": `${NETLIFY_BASE_API}/statuses/new`,
-  "set_status": `${NETLIFY_BASE_API}/statuses/`,
-  "profile": `${NETLIFY_BASE_API}/profile`,
-  "login": `${NETLIFY_BASE_API}/meetup`
-}
-
 export const fetchUserGroups = () => {
   return dispatch => {
     dispatch({ type: FETCH_USER_GROUPS_START })
@@ -36,7 +17,7 @@ export const fetchUserGroups = () => {
 }
 
 export const fetchUserGroupsAPI = () => {
-  return fetch(NETLIFY_API_CONSTANT_MAP.groups, {
+  return fetch("https://peaceful-castle-75215.herokuapp.com/api/v1/groups", {
     method: "GET",
     headers: {
       'content-type': 'application/json',
@@ -62,7 +43,7 @@ export const setCurrentGroup = (token, group) => {
 
 export const fetchGroupMembersAPI = (token, group) => {
   let groupId = group.meetup_group_id
-  return fetch(NETLIFY_API_CONSTANT_MAP.group_members + `${groupId}/users`, {
+  return fetch(`https://peaceful-castle-75215.herokuapp.com/api/v1/groups/${groupId}/users`, {
     method: "GET",
     headers: {
       'content-type': 'application/json',
@@ -75,7 +56,7 @@ export const fetchGroupMembersAPI = (token, group) => {
 
 export const addMemberGroupStatus = (token, group) => {
   let groupId = group.meetup_group_id
-  return fetch(NETLIFY_API_CONSTANT_MAP.group_members + `${groupId}/users`, {
+  return fetch(`https://peaceful-castle-75215.herokuapp.com/api/v1/groups/${groupId}/users`, {
     method: "GET",
     headers: {
       'content-type': 'application/json',
